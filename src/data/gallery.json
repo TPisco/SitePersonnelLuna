@@ -1,37 +1,66 @@
 {
-  "$comment": "Gallery photos, in display order. `image` is a file name in src/assets/photos (without .jpg).",
+  "$comment": "Gallery photos, in display order (the grid fills column by column). `image` is a file name in src/assets/photos, without extension (.jpg / .JPG both work). Landscape and portrait photos are both fine: the layout adapts. `alt` describes the photo in each language. Optional `focus` is the CSS object-position used when a tall photo is cropped, e.g. \"50% 20%\" keeps the top.",
   "items": [
     {
-      "image": "gallery-acoustic-duo",
+      "image": "gallery-1",
       "alt": {
-        "fr": "Lunayla chante en studio à côté d'un guitariste, pendant la version acoustique de DESCONOCIDOS.",
-        "en": "Lunayla sings in the studio next to a guitarist during the acoustic version of DESCONOCIDOS.",
-        "es": "Lunayla canta en el estudio junto a un guitarrista durante la versión acústica de DESCONOCIDOS."
+        "fr": "Lunayla chante assise, lunettes de soleil et chemise bleue, devant un guitariste et un percussionniste pendant un spectacle acoustique.",
+        "en": "Lunayla sings seated, in sunglasses and a blue shirt, in front of a guitarist and a percussionist during an acoustic show.",
+        "es": "Lunayla canta sentada, con gafas de sol y camisa azul, delante de un guitarrista y un percusionista durante un concierto acústico."
       }
     },
     {
-      "image": "gallery-desconocidos",
+      "image": "gallery-PHOTO-MAUVE-2",
       "alt": {
-        "fr": "Gros plan de Lunayla en veste en jean, tirée du visualizer de DESCONOCIDOS.",
-        "en": "Close-up of Lunayla in a denim jacket, from the DESCONOCIDOS visualizer.",
-        "es": "Primer plano de Lunayla con chaqueta de mezclilla, del visualizer de DESCONOCIDOS."
+        "fr": "Lunayla assise sur la marche d'une porte violette, un foulard magenta noué en haut, regarde sur le côté.",
+        "en": "Lunayla sits on the step of a purple door, wearing a magenta scarf as a top, looking to the side.",
+        "es": "Lunayla sentada en el escalón de una puerta morada, con un pañuelo magenta como top, mira hacia un lado."
+      },
+      "focus": "60% 45%"
+    },
+    {
+      "image": "gallery-2",
+      "alt": {
+        "fr": "Lunayla chante et danse, le bras levé, entourée d'un guitariste, d'un percussionniste et d'un claviériste.",
+        "en": "Lunayla sings and dances with one arm raised, surrounded by a guitarist, a percussionist and a keyboard player.",
+        "es": "Lunayla canta y baila con un brazo en alto, rodeada de un guitarrista, un percusionista y un teclista."
       }
     },
     {
-      "image": "gallery-live-band",
+      "image": "gallery-PHOTO-SHOW-LUNA",
       "alt": {
-        "fr": "Lunayla chante et danse, micro en main, devant un guitariste et un percussionniste pendant la session live d'Esa Noche.",
-        "en": "Lunayla sings and dances, mic in hand, in front of a guitarist and a percussionist during the Esa Noche live session.",
-        "es": "Lunayla canta y baila, micrófono en mano, frente a un guitarrista y un percusionista durante la sesión en vivo de Esa Noche."
-      }
+        "fr": "Sur scène sous des projecteurs bleus, Lunayla chante en souriant derrière un clavier, avec trois choristes.",
+        "en": "On stage under blue spotlights, Lunayla sings with a smile behind a keyboard, with three backing singers.",
+        "es": "En el escenario bajo luces azules, Lunayla canta sonriendo detrás de un teclado, con tres coristas."
+      },
+      "focus": "40% 60%"
     },
     {
-      "image": "gallery-le-digo-no-session",
+      "image": "Show-3",
       "alt": {
-        "fr": "Lunayla chante avec des musiciens (batterie, clavier, guitare) pendant la version acoustique de Le Digo No.",
-        "en": "Lunayla sings with musicians (drums, keys, guitar) during the acoustic version of Le Digo No.",
-        "es": "Lunayla canta con músicos (batería, teclado, guitarra) durante la versión acústica de Le Digo No."
-      }
+        "fr": "Lunayla chante sur scène dans des faisceaux de lumière bleue, deux choristes derrière elle.",
+        "en": "Lunayla sings on stage in beams of blue light, with two backing singers behind her.",
+        "es": "Lunayla canta en el escenario entre haces de luz azul, con dos coristas detrás de ella."
+      },
+      "focus": "40% 55%"
+    },
+    {
+      "image": "PHOTO-SHOW-ACOUSTIQUE",
+      "alt": {
+        "fr": "Lunayla sourit, micro à la main, en chemise bleue, dans une lumière chaude pendant un spectacle acoustique.",
+        "en": "Lunayla smiles, mic in hand, in a blue shirt, in warm light during an acoustic show.",
+        "es": "Lunayla sonríe, micrófono en mano, con camisa azul, bajo una luz cálida durante un concierto acústico."
+      },
+      "focus": "50% 25%"
+    },
+    {
+      "image": "PHOTO-SHOW-ACOUSTIQUE-2",
+      "alt": {
+        "fr": "Lunayla chante assise, micro à la main, avec un guitariste en arrière-plan pendant un spectacle acoustique.",
+        "en": "Lunayla sings seated, mic in hand, with a guitarist in the background during an acoustic show.",
+        "es": "Lunayla canta sentada, micrófono en mano, con un guitarrista al fondo durante un concierto acústico."
+      },
+      "focus": "50% 45%"
     }
   ]
 }

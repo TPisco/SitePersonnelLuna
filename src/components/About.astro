@@ -23,6 +23,7 @@ const { t } = Astro.props;
         <Image
           src={photo('about-portrait')}
           alt={t.about.photoAlt}
+          width={720}
           widths={[360, 540, 720]}
           sizes="(min-width: 900px) 420px, 80vw"
           class="about__img"
@@ -86,6 +87,8 @@ const { t } = Astro.props;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    /* Landscape photo: keep her centered in the portrait frame. */
+    object-position: 54% 50%;
     border: var(--border-thick) solid var(--offwhite);
     border-radius: 58% 42% 50% 50% / 42% 48% 52% 58%;
   }

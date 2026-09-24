@@ -2,19 +2,36 @@ import type { ImageMetadata } from 'astro';
 
 type ImageModule = { default: ImageMetadata };
 
-const photos = import.meta.glob<ImageModule>('/src/assets/photos/*.jpg', { eager: true });
-const covers = import.meta.glob<ImageModule>('/src/assets/covers/*.jpg', { eager: true });
-const thumbs = import.meta.glob<ImageModule>('/src/assets/thumbs/*.jpg', { eager: true });
+// Any common image extension, lower or upper case (cameras export `.JPG`).
+// Other files in these folders (videos, RAW files) are never imported.
+const photos = import.meta.glob<ImageModule>('/src/assets/photos/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true });
+const covers = import.meta.glob<ImageModule>('/src/assets/covers/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true });
+const thumbs = import.meta.glob<ImageModule>('/src/assets/thumbs/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true });
 
-function pick(modules: Record<string, ImageModule>, folder: string, name: string): ImageMetadata {
-  const mod = modules[`/src/assets/${folder}/${name}.jpg`];
-  if (!mod) throw new Error(`Image not found: src/assets/${folder}/${name}.jpg`);
-  return mod.default;
+/** Index a glob result by lower-case file name without extension. */
+function byName(modules: Record<string, ImageModule>) {
+  const index = new Map<string, ImageMetadata>();
+  for (const [path, mod] of Object.entries(modules)) {
+    const name = path.split('/').pop()!.replace(/\.[^.]+$/, '').toLowerCase();
+    index.set(name, mod.default);
+  }
+  return index;
 }
 
-/** Photo from src/assets/photos, by file name without extension. */
-export const photo = (name: string) => pick(photos, 'photos', name);
+const index = { photos: byName(photos), covers: byName(covers), thumbs: byName(thumbs) };
+
+function pick(folder: keyof typeof index, name: string): ImageMetadata {
+  const img = index[folder].get(name.toLowerCase());
+  if (!img) {
+    const available = [...index[folder].keys()].join(', ');
+    throw new Error(`Image not found: src/assets/${folder}/${name}.jpg (available: ${available})`);
+  }
+  return img;
+}
+
+/** Photo from src/assets/photos, by file name without extension (case-insensitive). */
+export const photo = (name: string) => pick('photos', name);
 /** Single cover from src/assets/covers. */
-export const cover = (name: string) => pick(covers, 'covers', name);
+export const cover = (name: string) => pick('covers', name);
 /** Video thumbnail from src/assets/thumbs. */
-export const thumb = (name: string) => pick(thumbs, 'thumbs', name);
+export const thumb = (name: string) => pick('thumbs', name);

@@ -33,13 +33,13 @@ Strings identical in all three languages (codes, names) are omitted.
 | `hero.latest` | Dernière sortie : {title} | Latest release: {title} | Lo último: {title} |
 | `hero.photoAlt` | Lunayla assise devant une porte violette, un foulard magenta noué en haut, regarde l'objectif. | Lunayla sits in front of a purple door, wearing a magenta scarf top, looking at the camera. | Lunayla sentada frente a una puerta morada, con un pañuelo magenta como top, mira a la cámara. |
 | `about.title` | À propos | About | Biografía |
-| `about.paragraphs.0` | Lunayla est une artiste indépendante de Montréal, d'origine cubaine. Elle marie le R&B contemporain aux rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage. | Lunayla is an independent artist from Montréal with Cuban roots. She blends contemporary R&B with Latin rhythms into a vibrant, sensual sound grounded in her heritage. | Lunayla es una artista independiente de Montreal con raíces cubanas. Mezcla el R&B contemporáneo con ritmos latinos para crear un sonido vibrante y sensual, arraigado en su herencia. |
-| `about.paragraphs.1` | Chanteuse, elle joue aussi du piano, du saxophone alto et de la flûte traversière. Elle cosigne ses chansons, dont « Le Digo No » et « ESA NOCHE ». En 2023, elle participe à La Voix sur TVA, dans l'équipe de Mario Pelchat. | Besides singing, she plays piano, alto saxophone and flute. She co-writes her songs, including “Le Digo No” and “ESA NOCHE”. In 2023, she took part in La Voix on TVA, on Team Mario Pelchat. | Además de cantar, toca el piano, el saxofón alto y la flauta traversa. Es coautora de sus canciones, entre ellas «Le Digo No» y «ESA NOCHE». En 2023 participó en La Voix, en TVA, dentro del equipo de Mario Pelchat. |
-| `about.paragraphs.2` | Avec « ESA NOCHE », elle revient à la salsa, ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d'un monde, d'une langue et d'un son à l'autre : tout ça, por el amor del arte. | With “ESA NOCHE”, she returns to salsa, the rhythms that shaped her musical identity. Feminine energy, confidence and the freedom to move between worlds, languages and sounds: all of it por el amor del arte. | Con «ESA NOCHE» vuelve a la salsa, los ritmos que marcaron su identidad musical. Energía femenina, confianza y la libertad de moverse entre mundos, idiomas y sonidos: todo por el amor del arte. |
+| `about.paragraphs.0` | Lunayla est une artiste indépendante de Montréal, d’origine cubaine. Elle fusionne le R&B avec les rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage et porté par un univers coloré et lumineux. | Lunayla is an independent artist from Montréal with Cuban roots. She blends contemporary R&B with Latin rhythms into a vibrant, sensual sound grounded in her heritage and carried by a colourful, luminous universe. | Lunayla es una artista independiente de Montreal con raíces cubanas. Mezcla el R&B contemporáneo con ritmos latinos para crear un sonido vibrante y sensual, arraigado en su herencia y envuelto en un universo colorido y luminoso. |
+| `about.paragraphs.1` | Auteure-compositrice-interprète et multi-instrumentiste, elle fait de chaque chanson un prolongement d’elle-même. | A singer-songwriter and multi-instrumentalist, she makes every song an extension of herself. | Cantautora y multiinstrumentista, hace de cada canción una extensión de sí misma. |
+| `about.paragraphs.2` | Avec « ESA NOCHE », une salsa moderne, elle revient à ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d’un monde, d’une langue et d’un son à l’autre : tout ça, por el amor del arte. | With "ESA NOCHE",  modern salsa, she returns to the rhythms that shaped her musical identity. Feminine energy, confidence, the freedom to move from one world, one language and one sound to another: all of it, por el amor del arte. | Con «ESA NOCHE», una salsa moderna, regresa a esos ritmos que forjaron su identidad musical. Energía femenina, confianza, la libertad de pasar de un mundo, de un idioma y de un sonido a otro: todo eso, por el amor del arte. |
 | `about.facts.0` | Montréal \| Cuba | Montréal \| Cuba | Montreal \| Cuba |
 | `about.facts.1` | R&B × rythmes latins | R&B × Latin rhythms | R&B × ritmos latinos |
 | `about.facts.2` | Voix · piano · sax alto · flûte | Vocals · piano · alto sax · flute | Voz · piano · saxo alto · flauta |
-| `about.photoAlt` | Lunayla en studio, micro à la main, un bandana sur la tête, regarde l'objectif. | Lunayla in the studio, holding a microphone and wearing a bandana, looks at the camera. | Lunayla en el estudio, con un micrófono en la mano y un pañuelo en la cabeza, mira a la cámara. |
+| `about.photoAlt` | Lunayla chante les yeux fermés, micro à la main, dans une lumière chaude. | Lunayla sings with her eyes closed, mic in hand, in warm light. | Lunayla canta con los ojos cerrados, micrófono en mano, bajo una luz cálida. |
 | `music.title` | Musique | Music | Música |
 | `music.intro` | Le dernier single, les sessions acoustiques et le reste du catalogue. Choisis ta plateforme. | The latest single, the acoustic sessions and the rest of the catalogue. Pick your platform. | El último sencillo, las sesiones acústicas y el resto del catálogo. Elige tu plataforma. |
 | `music.listenOn` | Écouter sur {platform} | Listen on {platform} | Escuchar en {platform} |
@@ -59,7 +59,7 @@ Strings identical in all three languages (codes, names) are omitted.
 | `achievements.title` | Réalisations | Achievements | Logros |
 | `achievements.intro` | Sorties, scènes et moments marquants. | Releases, stages and milestones. | Lanzamientos, escenarios y momentos clave. |
 | `achievements.upcoming` | À venir | Upcoming | Próximamente |
-| `achievements.photoAlt` | Lunayla chante sur scène avec un guitariste et un percussionniste pendant la session live d'Esa Noche. | Lunayla sings on stage with a guitarist and a percussionist during the Esa Noche live session. | Lunayla canta en el escenario con un guitarrista y un percusionista durante la sesión en vivo de Esa Noche. |
+| `achievements.photoAlt` | Lunayla chante sur scène, micro à la main, sous des projecteurs bleus. | Lunayla sings on stage, mic in hand, under blue spotlights. | Lunayla canta en el escenario, micrófono en mano, bajo luces azules. |
 | `gallery.title` | Galerie | Gallery | Galería |
 | `gallery.open` | Agrandir la photo | Enlarge photo | Ampliar la foto |
 | `gallery.close` | Fermer | Close | Cerrar |
@@ -92,9 +92,6 @@ Strings identical in all three languages (codes, names) are omitted.
 
 | Key | Français | English | Español |
 |---|---|---|---|
-| `next-show.dateLabel` *(template)* | Automne 2026 | Fall 2026 | Otoño 2026 |
-| `next-show.title` *(template)* | Prochain spectacle | Next show | Próximo concierto |
-| `next-show.place` *(template)* | Montréal, QC | Montréal, QC | Montreal, QC |
 | `esa-noche.title` | Sortie du single « ESA NOCHE » | “ESA NOCHE” single released | Lanzamiento del sencillo «ESA NOCHE» |
 | `esa-noche.place` | Un retour à la salsa · L'Univers de Lunayla | A return to salsa · L'Univers de Lunayla | Un regreso a la salsa · L'Univers de Lunayla |
 | `desconocidos.title` | « DESCONOCIDOS » avec MAL PORTADO | “DESCONOCIDOS” with MAL PORTADO | «DESCONOCIDOS» con MAL PORTADO |
@@ -107,26 +104,15 @@ Strings identical in all three languages (codes, names) are omitted.
 | `le-hablo-asi.place` | Single | Single | Sencillo |
 | `tu-y-yo.title` | Sortie de « Tú Y Yo » | “Tú Y Yo” released | Lanzamiento de «Tú Y Yo» |
 | `tu-y-yo.place` | Single | Single | Sencillo |
-| `la-voix.title` | La Voix : ronde des Duels, équipe Mario Pelchat | La Voix: Battle round, Team Mario Pelchat | La Voix: ronda de Duelos, equipo de Mario Pelchat |
-| `la-voix.place` | TVA · en duo avec Jephté Phélice sur « Tel un seul homme » | TVA · duet with Jephté Phélice on “Tel un seul homme” | TVA · a dúo con Jephté Phélice en «Tel un seul homme» |
-| `granby.dateLabel` | Avant 2023 | Before 2023 | Antes de 2023 |
-| `granby.title` | Petit Festival de la chanson de Granby | Petit Festival de la chanson de Granby | Petit Festival de la chanson de Granby |
-| `granby.place` | Granby, QC | Granby, QC | Granby, QC |
-| `saint-hubert.dateLabel` | Avant 2023 | Before 2023 | Antes de 2023 |
-| `saint-hubert.title` | Festival de la famille de Saint-Hubert | Festival de la famille de Saint-Hubert | Festival de la famille de Saint-Hubert |
-| `saint-hubert.place` | Saint-Hubert, QC | Saint-Hubert, QC | Saint-Hubert, QC |
-| `en-spectacle.dateLabel` | Avant 2023 | Before 2023 | Antes de 2023 |
-| `en-spectacle.title` | Primaire en spectacle et Secondaire en spectacle | Primaire en spectacle and Secondaire en spectacle | Primaire en spectacle y Secondaire en spectacle |
-| `en-spectacle.place` | Scènes scolaires du Québec | Québec school stage programs | Programas escénicos escolares de Quebec |
-| `first-show.dateLabel` | Avant 2023 | Before 2023 | Antes de 2023 |
-| `first-show.title` | Premier spectacle | First show | Primer concierto |
-| `first-show.place` | À l'église | In a church | En una iglesia |
 
 ## Gallery alt text (src/data/gallery.json)
 
 | Key | Français | English | Español |
 |---|---|---|---|
-| `gallery-acoustic-duo.alt` | Lunayla chante en studio à côté d'un guitariste, pendant la version acoustique de DESCONOCIDOS. | Lunayla sings in the studio next to a guitarist during the acoustic version of DESCONOCIDOS. | Lunayla canta en el estudio junto a un guitarrista durante la versión acústica de DESCONOCIDOS. |
-| `gallery-desconocidos.alt` | Gros plan de Lunayla en veste en jean, tirée du visualizer de DESCONOCIDOS. | Close-up of Lunayla in a denim jacket, from the DESCONOCIDOS visualizer. | Primer plano de Lunayla con chaqueta de mezclilla, del visualizer de DESCONOCIDOS. |
-| `gallery-live-band.alt` | Lunayla chante et danse, micro en main, devant un guitariste et un percussionniste pendant la session live d'Esa Noche. | Lunayla sings and dances, mic in hand, in front of a guitarist and a percussionist during the Esa Noche live session. | Lunayla canta y baila, micrófono en mano, frente a un guitarrista y un percusionista durante la sesión en vivo de Esa Noche. |
-| `gallery-le-digo-no-session.alt` | Lunayla chante avec des musiciens (batterie, clavier, guitare) pendant la version acoustique de Le Digo No. | Lunayla sings with musicians (drums, keys, guitar) during the acoustic version of Le Digo No. | Lunayla canta con músicos (batería, teclado, guitarra) durante la versión acústica de Le Digo No. |
+| `gallery-1.alt` | Lunayla chante assise, lunettes de soleil et chemise bleue, devant un guitariste et un percussionniste pendant un spectacle acoustique. | Lunayla sings seated, in sunglasses and a blue shirt, in front of a guitarist and a percussionist during an acoustic show. | Lunayla canta sentada, con gafas de sol y camisa azul, delante de un guitarrista y un percusionista durante un concierto acústico. |
+| `gallery-PHOTO-MAUVE-2.alt` | Lunayla assise sur la marche d'une porte violette, un foulard magenta noué en haut, regarde sur le côté. | Lunayla sits on the step of a purple door, wearing a magenta scarf as a top, looking to the side. | Lunayla sentada en el escalón de una puerta morada, con un pañuelo magenta como top, mira hacia un lado. |
+| `gallery-2.alt` | Lunayla chante et danse, le bras levé, entourée d'un guitariste, d'un percussionniste et d'un claviériste. | Lunayla sings and dances with one arm raised, surrounded by a guitarist, a percussionist and a keyboard player. | Lunayla canta y baila con un brazo en alto, rodeada de un guitarrista, un percusionista y un teclista. |
+| `gallery-PHOTO-SHOW-LUNA.alt` | Sur scène sous des projecteurs bleus, Lunayla chante en souriant derrière un clavier, avec trois choristes. | On stage under blue spotlights, Lunayla sings with a smile behind a keyboard, with three backing singers. | En el escenario bajo luces azules, Lunayla canta sonriendo detrás de un teclado, con tres coristas. |
+| `Show-3.alt` | Lunayla chante sur scène dans des faisceaux de lumière bleue, deux choristes derrière elle. | Lunayla sings on stage in beams of blue light, with two backing singers behind her. | Lunayla canta en el escenario entre haces de luz azul, con dos coristas detrás de ella. |
+| `PHOTO-SHOW-ACOUSTIQUE.alt` | Lunayla sourit, micro à la main, en chemise bleue, dans une lumière chaude pendant un spectacle acoustique. | Lunayla smiles, mic in hand, in a blue shirt, in warm light during an acoustic show. | Lunayla sonríe, micrófono en mano, con camisa azul, bajo una luz cálida durante un concierto acústico. |
+| `PHOTO-SHOW-ACOUSTIQUE-2.alt` | Lunayla chante assise, micro à la main, avec un guitariste en arrière-plan pendant un spectacle acoustique. | Lunayla sings seated, mic in hand, with a guitarist in the background during an acoustic show. | Lunayla canta sentada, micrófono en mano, con un guitarrista al fondo durante un concierto acústico. |

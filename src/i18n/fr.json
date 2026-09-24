@@ -53,16 +53,16 @@
   "about": {
     "title": "À propos",
     "paragraphs": [
-      "Lunayla est une artiste indépendante de Montréal, d'origine cubaine. Elle marie le R&B contemporain aux rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage.",
-      "Chanteuse, elle joue aussi du piano, du saxophone alto et de la flûte traversière. Elle cosigne ses chansons, dont « Le Digo No » et « ESA NOCHE ». En 2023, elle participe à La Voix sur TVA, dans l'équipe de Mario Pelchat.",
-      "Avec « ESA NOCHE », elle revient à la salsa, ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d'un monde, d'une langue et d'un son à l'autre : tout ça, por el amor del arte."
+      "Lunayla est une artiste indépendante de Montréal, d’origine cubaine. Elle fusionne le R&B avec les rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage et porté par un univers coloré et lumineux.",
+      "Auteure-compositrice-interprète et multi-instrumentiste, elle fait de chaque chanson un prolongement d’elle-même.",
+      "Avec « ESA NOCHE », une salsa moderne, elle revient à ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d’un monde, d’une langue et d’un son à l’autre : tout ça, por el amor del arte."
     ],
     "facts": [
       "Montréal | Cuba",
       "R&B × rythmes latins",
       "Voix · piano · sax alto · flûte"
     ],
-    "photoAlt": "Lunayla en studio, micro à la main, un bandana sur la tête, regarde l'objectif."
+    "photoAlt": "Lunayla chante les yeux fermés, micro à la main, dans une lumière chaude."
   },
   "music": {
     "title": "Musique",
@@ -89,7 +89,7 @@
     "title": "Réalisations",
     "intro": "Sorties, scènes et moments marquants.",
     "upcoming": "À venir",
-    "photoAlt": "Lunayla chante sur scène avec un guitariste et un percussionniste pendant la session live d'Esa Noche."
+    "photoAlt": "Lunayla chante sur scène, micro à la main, sous des projecteurs bleus."
   },
   "gallery": {
     "title": "Galerie",

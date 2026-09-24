@@ -21,3 +21,10 @@ Thumbs.db
 # deploy tools
 .vercel/
 .netlify/
+
+# raw camera files and videos: not used by the site, too big for git
+# (GitHub rejects files over 100 MB)
+*.ARW
+*.arw
+*.mov
+*.MOV

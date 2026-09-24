@@ -27,10 +27,9 @@ Used with the client's approval. **TODO: add photographer credits if she wants t
 
 | File (src/assets/…) | Origin |
 |---|---|
-| `photos/purple-door-square.jpg` | Cover photo of bio.site/lunayla (same shoot as the Spotify photo and ESA NOCHE cover) |
-| `photos/hero-wide.jpg` | Same photo, background extended to 16:9 with Higgsfield outpaint (job fd0d1c98-8a47-4cb4-ade0-c7bb4b353d2a). The original, untouched pixels were composited back over the center, so her face and body are not AI-altered. Raw AI output: `materials/outpaint-16x9-raw.jpg` |
-| `photos/about-portrait.jpg` | Frame from "DESCONOCIDOS (Version Acoustique)" on YouTube, cropped 4:5 |
-| `photos/stage-portrait.jpg` | Frame from "Esa Noche (Live Acoustique)" on YouTube, cropped 4:5 |
-| `photos/gallery-*.jpg` | Frames from her YouTube videos (acoustic sessions, live session, DESCONOCIDOS visualizer) |
+| `photos/hero-tall.jpg` (phones) and `photos/hero-wide.jpg` (landscape screens) | Zoomed-out versions of the purple-door photo (source: `materials/hero-source-purple-door.jpg`, cover of bio.site/lunayla). The extra door, wall and step around her were added with Higgsfield outpaint (jobs d83bbe14-1754-41ed-8795-3b1842c16cde for 3:4, then 3ad46269-da72-4492-8a7e-4e952374a8bb for 16:9). The original, untouched pixels were composited back over her, so her face and upper body are not AI-altered; her lower legs and the step below the original frame are AI-generated and sit behind the dark gradient. Raw AI outputs: `materials/outpaint-hero-3x4-raw.jpg`, `materials/outpaint-hero-wide-raw.jpg`. (`materials/outpaint-16x9-raw.jpg` is the previous, closer hero.) |
+| `photos/about-portrait.JPG` | Provided by the client (acoustic show) |
+| `photos/stage-portrait.jpg` | Provided by the client (stage, blue lights) |
+| `photos/gallery-*.jpg`, `photos/Show-3.jpg`, `photos/PHOTO-SHOW-ACOUSTIQUE*.JPG` | Provided by the client |
 | `covers/*.jpg` | Single covers from Spotify |
 | `thumbs/*.jpg` | YouTube video thumbnails |

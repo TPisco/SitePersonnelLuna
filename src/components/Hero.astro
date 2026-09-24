@@ -13,27 +13,31 @@ interface Props {
 
 const { t } = Astro.props;
 
-// Art direction: wide photo (extended with Higgsfield outpaint) on landscape screens,
-// the original square portrait on phones and portrait tablets.
+// Art direction: a wide 16:9 version on landscape screens and a 3:4 version on phones
+// and portrait tablets. Both are zoomed out from the original purple-door photo: the
+// extra door, wall and step around her come from Higgsfield outpaint, with the original
+// pixels pasted back over her (see materials/SOURCES.md).
 const wide = photo('hero-wide');
-const square = photo('purple-door-square');
+const tall = photo('hero-tall');
 
 async function srcset(src: ImageMetadata, widths: number[], format: 'avif' | 'webp', quality: number) {
   const images = await Promise.all(widths.map((width) => getImage({ src, width, format, quality })));
   return images.map((img, i) => `${img.src} ${widths[i]}w`).join(', ');
 }
 
+// Largest width = the file's own width (2752 × 1548 and 1575 × 2100). Written out rather
+// than read from the import, so Astro doesn't ship the full-size originals.
 const wideWidths = [1280, 1680, 2200, 2752];
-const squareWidths = [640, 960, 1280, 1600];
-const [wideAvif, wideWebp, squareAvif, squareWebp, fallback] = await Promise.all([
+const tallWidths = [640, 960, 1280, 1575];
+const [wideAvif, wideWebp, tallAvif, tallWebp, fallback] = await Promise.all([
   srcset(wide, wideWidths, 'avif', 55),
   srcset(wide, wideWidths, 'webp', 72),
-  srcset(square, squareWidths, 'avif', 55),
-  srcset(square, squareWidths, 'webp', 72),
-  getImage({ src: square, width: 960, format: 'jpg', quality: 75 }),
+  srcset(tall, tallWidths, 'avif', 55),
+  srcset(tall, tallWidths, 'webp', 72),
+  getImage({ src: tall, width: 960, format: 'jpg', quality: 75 }),
 ]);
 
-const landscape = '(min-width: 900px) and (min-aspect-ratio: 1/1)';
+const landscape = '(min-aspect-ratio: 1/1)';
 const links = [...site.streaming, ...site.socials];
 ---
 
@@ -41,9 +45,9 @@ const links = [...site.streaming, ...site.socials];
   <picture class="hero__media">
     <source media={landscape} type="image/avif" srcset={wideAvif} sizes="100vw" />
     <source media={landscape} type="image/webp" srcset={wideWebp} sizes="100vw" />
-    <source type="image/avif" srcset={squareAvif} sizes="max(100vw, 100vh)" />
-    <source type="image/webp" srcset={squareWebp} sizes="max(100vw, 100vh)" />
-    <img src={fallback.src} width="1536" height="1536" alt={t.hero.photoAlt} fetchpriority="high" />
+    <source type="image/avif" srcset={tallAvif} sizes="max(100vw, 75vh)" />
+    <source type="image/webp" srcset={tallWebp} sizes="max(100vw, 75vh)" />
+    <img src={fallback.src} width={fallback.attributes.width} height={fallback.attributes.height} alt={t.hero.photoAlt} fetchpriority="high" />
   </picture>
   <div class="hero__shade" aria-hidden="true"></div>
 

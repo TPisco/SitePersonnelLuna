@@ -28,6 +28,7 @@ const items = getAchievements(lang);
         <Image
           src={photo('stage-portrait')}
           alt={t.achievements.photoAlt}
+          width={720}
           widths={[360, 540, 720]}
           sizes="(min-width: 1000px) 400px, 92vw"
           class="achievements__img"
@@ -94,6 +95,7 @@ const items = getAchievements(lang);
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: 50% 35%;
     border: var(--border-thick) solid var(--lavender);
     border-radius: var(--radius);
     rotate: -2deg;

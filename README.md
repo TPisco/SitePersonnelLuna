@@ -49,7 +49,7 @@ materials/SOURCES.md   ← where every fact and photo comes from
 
 - **Text**: change it in all three `src/i18n/*.json` files (same key in each). A missing key breaks the build on purpose.
 - **Email / links**: `src/data/site.json`.
-- **Photos**: drop a `.jpg` in `src/assets/photos/` and reference it by file name (without `.jpg`). Astro makes AVIF/WebP versions in several sizes at build time.
+- **Photos**: drop a `.jpg` / `.JPG` (or `.png`, `.webp`) in `src/assets/photos/` and reference it by file name, without the extension. Astro makes AVIF/WebP versions in several sizes at build time. To add one to the gallery, add an entry to `src/data/gallery.json` with its alt text in the 3 languages; portrait and landscape photos both work. Keep only photos the site uses in that folder (an unused photo still gets copied into the build), and keep videos and RAW files (`.mov`, `.ARW`) out of it: they are git-ignored.
 
 ## Add an achievement
 
