@@ -1,0 +1,406 @@
+/* ==========================================================================
+   Design tokens: "Cool depth. Warm sparks."
+   Purple ~75% (core surfaces) · Lavender ~20% · Magenta ~5% (buttons, bars)
+   Orange & yellow: stickers and hover sparks only, never large areas.
+   ========================================================================== */
+:root {
+  --purple: #412153;
+  --lavender: #ba94cf;
+  --magenta: #dc1b84;
+  --orange: #fc772c;
+  --yellow: #f9d922;
+  --offwhite: #f9f8f4;
+  --white: #ffffff;
+
+  --font-display: 'Anton', Impact, 'Arial Narrow Bold', sans-serif;
+  --font-body: 'DM Sans Variable', 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --maxw: 1240px;
+  --radius: 28px;
+  --radius-sm: 18px;
+  --border-thick: 5px;
+  --header-h: 64px;
+  --section-pad: clamp(4.5rem, 11vw, 8.5rem);
+
+  /* Focus ring color, redefined per surface for 3:1 contrast. */
+  --focus: var(--yellow);
+}
+
+/* Surfaces: each sets text + focus colors that pass WCAG AA on it. */
+.surface-purple {
+  background: var(--purple);
+  color: var(--offwhite);
+  --focus: var(--yellow);
+  --rule: var(--lavender);
+  --muted: var(--lavender);
+}
+.surface-lavender {
+  background: var(--lavender);
+  color: var(--purple);
+  --focus: var(--purple);
+  --rule: var(--purple);
+  --muted: var(--purple);
+}
+.surface-offwhite {
+  background: var(--offwhite);
+  color: var(--purple);
+  --focus: var(--magenta);
+  --rule: var(--purple);
+  --muted: var(--purple);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+}
+
+/* Smooth scrolling for in-page links only: the class is added after load, so arriving
+   from another language on /es/#music jumps straight to the section. */
+@media (prefers-reduced-motion: no-preference) {
+  html.smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--purple);
+  color: var(--offwhite);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--magenta);
+  color: var(--white);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--offwhite);
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+.container {
+  width: min(100% - 2 * var(--gutter), var(--maxw));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+  overflow: clip;
+}
+
+/* Section title with a thin rule extending to the right. */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.section-head__rule {
+  flex: 1;
+  height: 2px;
+  margin-bottom: 0.9em;
+  background: var(--rule);
+  opacity: 0.7;
+}
+.section-head__rule--start {
+  flex: 0 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.005em;
+}
+
+.title-xl {
+  font-size: clamp(3.25rem, 12vw, 8.5rem);
+}
+
+.title-md {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+}
+
+.lead {
+  font-size: clamp(1.125rem, 2.2vw, 1.3rem);
+  line-height: 1.55;
+  max-width: 46ch;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Buttons (pill, high contrast)
+   Magenta + white label = 4.6:1 (AA). Hover spark = orange + purple label (5:1).
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.btn svg {
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--magenta {
+  background: var(--magenta);
+  color: var(--white);
+}
+.btn--magenta:hover {
+  background: var(--orange);
+  color: var(--purple);
+}
+
+.btn--outline {
+  border-color: currentColor;
+  background: transparent;
+}
+.surface-purple .btn--outline:hover,
+.hero .btn--outline:hover {
+  background: var(--offwhite);
+  border-color: var(--offwhite);
+  color: var(--purple);
+}
+.surface-lavender .btn--outline:hover,
+.surface-offwhite .btn--outline:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--offwhite);
+}
+
+.btn--purple {
+  background: var(--purple);
+  color: var(--offwhite);
+}
+.btn--purple:hover {
+  background: var(--magenta);
+  color: var(--white);
+}
+
+/* Round icon button (socials). */
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.icon-btn:hover {
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: var(--white);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.35rem 1rem;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--magenta);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Stickers (decorative, off-grid)
+   ========================================================================== */
+.sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sticker--spin {
+    animation: sticker-spin 18s linear infinite;
+  }
+  .sticker--float {
+    animation: sticker-float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes sticker-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sticker-float {
+  50% {
+    transform: translateY(-10px) rotate(6deg);
+  }
+}
+
+/* ==========================================================================
+   Reveal on scroll (only when JS runs and motion is allowed)
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The skip link focuses <main>; no ring needed on the whole page. */
+main:focus {
+  outline: none;
+}

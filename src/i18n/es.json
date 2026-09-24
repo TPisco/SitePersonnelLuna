@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "htmlLang": "es",
+    "ogLocale": "es_LA",
+    "title": "Lunayla | Artista de R&B y ritmos latinos, Montreal",
+    "description": "Sitio oficial de Lunayla, artista independiente de Montreal con raíces cubanas. R&B contemporáneo y ritmos latinos: escucha ESA NOCHE, conoce su trayectoria y escríbele."
+  },
+  "a11y": {
+    "skip": "Ir al contenido",
+    "mainNav": "Navegación principal",
+    "footerNav": "Navegación del pie de página",
+    "language": "Elegir idioma",
+    "menuOpen": "Abrir el menú",
+    "menuClose": "Cerrar el menú",
+    "newTab": "(se abre en una pestaña nueva)",
+    "platforms": "Plataformas de música y redes sociales",
+    "marqueePause": "Pausar el texto en movimiento",
+    "marqueePlay": "Reanudar el texto en movimiento"
+  },
+  "nav": {
+    "about": "Biografía",
+    "music": "Música",
+    "achievements": "Logros",
+    "gallery": "Galería",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "eyebrow": "R&B × ritmos latinos",
+    "origin": "Montreal | Cuba",
+    "tagline": "Por el amor del arte",
+    "taglineLang": "es",
+    "listen": "Escuchar",
+    "latest": "Lo último: {title}",
+    "photoAlt": "Lunayla sentada frente a una puerta morada, con un pañuelo magenta como top, mira a la cámara."
+  },
+  "marquee": {
+    "top": [
+      "Lunayla",
+      "Musique",
+      "Music",
+      "Música",
+      "R&B",
+      "Salsa",
+      "Montréal",
+      "Cuba"
+    ],
+    "bottom": [
+      "Por el amor del arte",
+      "Lunayla",
+      "Montréal | Cuba"
+    ]
+  },
+  "about": {
+    "title": "Biografía",
+    "paragraphs": [
+      "Lunayla es una artista independiente de Montreal con raíces cubanas. Mezcla el R&B contemporáneo con ritmos latinos para crear un sonido vibrante y sensual, arraigado en su herencia.",
+      "Además de cantar, toca el piano, el saxofón alto y la flauta traversa. Es coautora de sus canciones, entre ellas «Le Digo No» y «ESA NOCHE». En 2023 participó en La Voix, en TVA, dentro del equipo de Mario Pelchat.",
+      "Con «ESA NOCHE» vuelve a la salsa, los ritmos que marcaron su identidad musical. Energía femenina, confianza y la libertad de moverse entre mundos, idiomas y sonidos: todo por el amor del arte."
+    ],
+    "facts": [
+      "Montreal | Cuba",
+      "R&B × ritmos latinos",
+      "Voz · piano · saxo alto · flauta"
+    ],
+    "photoAlt": "Lunayla en el estudio, con un micrófono en la mano y un pañuelo en la cabeza, mira a la cámara."
+  },
+  "music": {
+    "title": "Música",
+    "intro": "El último sencillo, las sesiones acústicas y el resto del catálogo. Elige tu plataforma.",
+    "listenOn": "Escuchar en {platform}",
+    "playerTitle": "Reproductor de Spotify de Lunayla",
+    "playerLoad": "Escuchar aquí",
+    "playerNote": "El reproductor de Spotify solo se carga si haces clic.",
+    "latest": "Último lanzamiento",
+    "latestCta": "Todas las plataformas",
+    "singles": "Sencillos",
+    "featuring": "con {name}",
+    "coverAlt": "Portada del sencillo {title}",
+    "videos": "Videos y sesiones",
+    "videoKinds": {
+      "live": "En vivo",
+      "visualizer": "Visualizer",
+      "acoustic": "Acústico"
+    },
+    "playVideo": "Reproducir el video: {title}",
+    "allVideos": "Todos los videos en YouTube"
+  },
+  "achievements": {
+    "title": "Logros",
+    "intro": "Lanzamientos, escenarios y momentos clave.",
+    "upcoming": "Próximamente",
+    "photoAlt": "Lunayla canta en el escenario con un guitarrista y un percusionista durante la sesión en vivo de Esa Noche."
+  },
+  "gallery": {
+    "title": "Galería",
+    "open": "Ampliar la foto",
+    "close": "Cerrar",
+    "prev": "Foto anterior",
+    "next": "Foto siguiente",
+    "counter": "Foto {i} de {n}"
+  },
+  "contact": {
+    "title": "Escríbeme",
+    "intro": "Conciertos, colaboraciones, prensa o simplemente para saludar: escríbeme.",
+    "emailLabel": "Mi correo",
+    "copy": "Copiar",
+    "copied": "¡Correo copiado!",
+    "copyFailed": "No se pudo copiar, selecciona la dirección a mano.",
+    "follow": "Sígueme",
+    "form": {
+      "title": "Envíame un mensaje",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Tu correo",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "message": "Mensaje",
+      "messagePlaceholder": "Tu mensaje…",
+      "submit": "Enviar",
+      "note": "El botón abre tu aplicación de correo con el mensaje listo. Solo tienes que enviarlo.",
+      "subject": "Mensaje del sitio web de {name}",
+      "someone": "alguien"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "backToTop": "Volver arriba"
+  },
+  "template": "(POR CAMBIAR)"
+}

@@ -1,0 +1,243 @@
+---
+import Icon from './Icon.astro';
+import { languages, langs, localePath, type Dict, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  t: Dict;
+}
+
+const { lang, t } = Astro.props;
+const sections = ['about', 'music', 'achievements', 'gallery', 'contact'] as const;
+---
+
+<header class="site-header" data-header data-label-open={t.a11y.menuOpen} data-label-close={t.a11y.menuClose}>
+  <div class="site-header__bar container">
+    <a class="site-header__logo display" href="#top">Lunayla</a>
+
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+      <span class="sr-only" data-menu-label>{t.a11y.menuOpen}</span>
+      <Icon name="menu" class="icon-open" />
+      <Icon name="close" class="icon-close" />
+    </button>
+
+    <div class="site-header__menu" id="site-menu" data-menu>
+      <nav class="site-nav" aria-label={t.a11y.mainNav}>
+        <ul role="list">
+          {
+            sections.map((id) => (
+              <li>
+                <a href={`#${id}`} data-nav-link={id}>
+                  {t.nav[id]}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="lang-switch" aria-label={t.a11y.language}>
+        <ul role="list">
+          {
+            langs.map((code) => (
+              <li>
+                <a
+                  href={localePath(code)}
+                  hreflang={code}
+                  lang={code}
+                  data-lang-link={code}
+                  aria-current={code === lang ? 'true' : undefined}
+                >
+                  <span aria-hidden="true">{code.toUpperCase()}</span>
+                  <span class="sr-only">{languages[code]}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    height: var(--header-h);
+    background: var(--purple);
+    color: var(--offwhite);
+    border-bottom: 1px solid rgb(186 148 207 / 0.25);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+    --focus: var(--yellow);
+  }
+
+  /* With JS, the bar is transparent over the hero until the page scrolls (JS adds .is-solid). */
+  :global(.js) .site-header:not(.is-solid):not(.is-open) {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .site-header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+  }
+
+  .site-header__logo {
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .site-header__toggle {
+    display: none;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-right: -8px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+  }
+  .site-header__toggle .icon-close,
+  .is-open .site-header__toggle .icon-open {
+    display: none;
+  }
+  .is-open .site-header__toggle .icon-close {
+    display: block;
+  }
+
+  .site-header__menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1.75rem);
+  }
+
+  .site-nav a {
+    position: relative;
+    display: inline-block;
+    padding-block: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.15rem;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--magenta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .site-nav a:hover::after,
+  .site-nav a[aria-current='true']::after {
+    transform: scaleX(1);
+  }
+
+  .lang-switch ul {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .lang-switch a {
+    display: inline-grid;
+    place-items: center;
+    min-width: 40px;
+    min-height: 36px;
+    padding-inline: 0.5rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  .lang-switch a:hover {
+    background: rgb(186 148 207 / 0.25);
+  }
+  .lang-switch a[aria-current='true'] {
+    background: var(--magenta);
+    color: var(--white);
+  }
+
+  /* ---------- Mobile: hamburger + full-screen panel ---------- */
+  @media (max-width: 899px) {
+    :global(.js) .site-header__toggle {
+      display: inline-grid;
+    }
+
+    :global(.js) .site-header__menu {
+      position: fixed;
+      inset: var(--header-h) 0 0;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem var(--gutter) max(2rem, env(safe-area-inset-bottom));
+      background: var(--purple);
+      overflow-y: auto;
+    }
+    :global(.js) .is-open .site-header__menu {
+      display: flex;
+    }
+
+    :global(.js) .site-nav ul {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    :global(.js) .site-nav a {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 12vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+    :global(.js) .site-nav a::after {
+      bottom: 0.35rem;
+      height: 5px;
+    }
+
+    :global(.js) .lang-switch a {
+      min-width: 56px;
+      min-height: 48px;
+      font-size: 1rem;
+      border: 2px solid rgb(186 148 207 / 0.5);
+    }
+
+    /* Without JS: a compact scrollable row under the bar. */
+    :global(html:not(.js)) .site-header {
+      height: auto;
+      position: sticky;
+    }
+    :global(html:not(.js)) .site-header__bar {
+      flex-wrap: wrap;
+      padding-block: 0.75rem;
+    }
+    :global(html:not(.js)) .site-header__menu {
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    :global(html:not(.js)) .site-nav ul {
+      flex-wrap: wrap;
+    }
+  }
+</style>

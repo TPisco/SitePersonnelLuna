@@ -1,0 +1,130 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import Sticker from './Sticker.astro';
+import { photo } from '../lib/assets';
+import type { Dict } from '../i18n';
+
+interface Props {
+  t: Dict;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section surface-purple about" id="about" aria-labelledby="about-title" data-section>
+  <div class="container about__inner">
+    <span class="about__bar" aria-hidden="true"></span>
+    <SectionHead id="about-title" title={t.about.title} />
+
+    <div class="about__grid">
+      <figure class="about__portrait" data-reveal>
+        <span class="about__blob" aria-hidden="true"></span>
+        <Image
+          src={photo('about-portrait')}
+          alt={t.about.photoAlt}
+          widths={[360, 540, 720]}
+          sizes="(min-width: 900px) 420px, 80vw"
+          class="about__img"
+          loading="lazy"
+        />
+        <Sticker kind="star" color="yellow" size={84} motion="spin" class="about__star" />
+        <Sticker kind="dot" color="orange" size={34} class="about__dot" />
+      </figure>
+
+      <div class="about__text" data-reveal>
+        {t.about.paragraphs.map((p, i) => <p class:list={[i === 0 && 'lead']}>{p}</p>)}
+        <ul role="list" class="about__facts">
+          {
+            t.about.facts.map((fact) => (
+              <li class="chip">{fact}</li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__inner {
+    position: relative;
+  }
+
+  /* Magenta accent bar, centered in the right gutter (like the color card). */
+  .about__bar {
+    --bar-w: clamp(6px, 1vw, 14px);
+    position: absolute;
+    top: calc(-1 * var(--section-pad));
+    bottom: calc(-1 * var(--section-pad));
+    right: calc(var(--gutter) / -2 - var(--bar-w) / 2);
+    width: var(--bar-w);
+    background: var(--magenta);
+  }
+
+  .about__grid {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .about__portrait {
+    position: relative;
+    width: min(86%, 420px);
+    margin-inline: auto;
+  }
+
+  .about__blob {
+    position: absolute;
+    inset: 6% -7% -6% 7%;
+    border-radius: 62% 38% 55% 45% / 45% 58% 42% 55%;
+    background: var(--lavender);
+  }
+
+  .about__img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: var(--border-thick) solid var(--offwhite);
+    border-radius: 58% 42% 50% 50% / 42% 48% 52% 58%;
+  }
+
+  .about__star {
+    top: -4%;
+    left: -6%;
+    width: clamp(56px, 9vw, 92px);
+    height: auto;
+  }
+  .about__dot {
+    bottom: 8%;
+    right: -4%;
+  }
+
+  .about__text {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 62ch;
+  }
+  .about__text p:not(.lead) {
+    color: var(--offwhite);
+    opacity: 0.92;
+  }
+
+  .about__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    color: var(--lavender);
+  }
+
+  @media (min-width: 900px) {
+    .about__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+    .about__portrait {
+      margin-inline: 0;
+    }
+  }
+</style>

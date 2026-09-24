@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import Sticker from './Sticker.astro';
+import { photo } from '../lib/assets';
+import { getAchievements } from '../lib/achievements';
+import type { Dict, Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  t: Dict;
+}
+
+const { lang, t } = Astro.props;
+const items = getAchievements(lang);
+---
+
+<section class="section surface-purple achievements" id="achievements" aria-labelledby="achievements-title" data-section>
+  <Sticker kind="sparkle" color="yellow" size={56} motion="spin" class="achievements__sparkle" />
+  <Sticker kind="ring" color="lavender" size={120} class="achievements__ring" />
+
+  <div class="container">
+    <SectionHead id="achievements-title" title={t.achievements.title} />
+    <p class="lead achievements__intro" data-reveal>{t.achievements.intro}</p>
+
+    <div class="achievements__grid">
+      <figure class="achievements__photo" data-reveal>
+        <Image
+          src={photo('stage-portrait')}
+          alt={t.achievements.photoAlt}
+          widths={[360, 540, 720]}
+          sizes="(min-width: 1000px) 400px, 92vw"
+          class="achievements__img"
+          loading="lazy"
+        />
+        <Sticker kind="dot" color="orange" size={46} class="achievements__dot" />
+      </figure>
+
+      <ul role="list" class="timeline">
+        {
+          items.map((item) => (
+            <li class:list={['timeline__item', { 'is-upcoming': item.upcoming }]} data-reveal>
+              <p class="timeline__date">
+                {item.datetime ? <time datetime={item.datetime}>{item.dateText}</time> : item.dateText}
+              </p>
+              <div class="timeline__body">
+                <p class="timeline__title">
+                  {item.title}
+                  {item.upcoming && <span class="tag timeline__tag">{t.achievements.upcoming}</span>}
+                  {item.template && !item.place && <strong class="tbc"> {t.template}</strong>}
+                </p>
+                {item.place && (
+                  <p class="timeline__place">
+                    {item.place}
+                    {item.template && <strong class="tbc"> {t.template}</strong>}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievements__sparkle {
+    top: clamp(2.5rem, 7vw, 6rem);
+    right: 8vw;
+  }
+  .achievements__ring {
+    bottom: -40px;
+    left: -40px;
+    opacity: 0.6;
+  }
+
+  .achievements__intro {
+    color: var(--lavender);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .achievements__grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .achievements__photo {
+    position: relative;
+    width: min(82%, 420px);
+  }
+  .achievements__img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: var(--border-thick) solid var(--lavender);
+    border-radius: var(--radius);
+    rotate: -2deg;
+  }
+  .achievements__dot {
+    top: -18px;
+    right: -14px;
+  }
+
+  .timeline__item {
+    display: grid;
+    gap: 0.25rem 1.5rem;
+    padding-block: 1.1rem;
+    border-top: 1px solid rgb(186 148 207 / 0.45);
+  }
+  .timeline__item:last-child {
+    border-bottom: 1px solid rgb(186 148 207 / 0.45);
+  }
+
+  .timeline__date {
+    font-weight: 800;
+    font-size: 1.0625rem;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .timeline__title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+  .timeline__tag {
+    margin-left: 0.5rem;
+  }
+  .timeline__place {
+    margin-top: 0.2rem;
+    color: var(--lavender);
+    font-size: 0.975rem;
+  }
+
+  .is-upcoming .timeline__date {
+    color: var(--yellow);
+  }
+
+  .tbc {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .timeline__item {
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      align-items: baseline;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .achievements__grid {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    }
+    .timeline {
+      grid-row: 1;
+      grid-column: 1;
+    }
+    .achievements__photo {
+      width: 100%;
+      grid-column: 2;
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+    }
+  }
+</style>

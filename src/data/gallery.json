@@ -1,0 +1,37 @@
+{
+  "$comment": "Gallery photos, in display order. `image` is a file name in src/assets/photos (without .jpg).",
+  "items": [
+    {
+      "image": "gallery-acoustic-duo",
+      "alt": {
+        "fr": "Lunayla chante en studio à côté d'un guitariste, pendant la version acoustique de DESCONOCIDOS.",
+        "en": "Lunayla sings in the studio next to a guitarist during the acoustic version of DESCONOCIDOS.",
+        "es": "Lunayla canta en el estudio junto a un guitarrista durante la versión acústica de DESCONOCIDOS."
+      }
+    },
+    {
+      "image": "gallery-desconocidos",
+      "alt": {
+        "fr": "Gros plan de Lunayla en veste en jean, tirée du visualizer de DESCONOCIDOS.",
+        "en": "Close-up of Lunayla in a denim jacket, from the DESCONOCIDOS visualizer.",
+        "es": "Primer plano de Lunayla con chaqueta de mezclilla, del visualizer de DESCONOCIDOS."
+      }
+    },
+    {
+      "image": "gallery-live-band",
+      "alt": {
+        "fr": "Lunayla chante et danse, micro en main, devant un guitariste et un percussionniste pendant la session live d'Esa Noche.",
+        "en": "Lunayla sings and dances, mic in hand, in front of a guitarist and a percussionist during the Esa Noche live session.",
+        "es": "Lunayla canta y baila, micrófono en mano, frente a un guitarrista y un percusionista durante la sesión en vivo de Esa Noche."
+      }
+    },
+    {
+      "image": "gallery-le-digo-no-session",
+      "alt": {
+        "fr": "Lunayla chante avec des musiciens (batterie, clavier, guitare) pendant la version acoustique de Le Digo No.",
+        "en": "Lunayla sings with musicians (drums, keys, guitar) during the acoustic version of Le Digo No.",
+        "es": "Lunayla canta con músicos (batería, teclado, guitarra) durante la versión acústica de Le Digo No."
+      }
+    }
+  ]
+}

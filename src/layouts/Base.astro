@@ -1,0 +1,75 @@
+---
+import '@fontsource/anton/latin-400.css';
+import '@fontsource-variable/dm-sans/wght.css';
+import '@fontsource-variable/dm-sans/wght-italic.css';
+import '../styles/global.css';
+import antonLatin from '@fontsource/anton/files/anton-latin-400-normal.woff2?url';
+import dmSansLatin from '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2?url';
+import { getImage } from 'astro:assets';
+import { langs, localePath, useTranslations, type Lang } from '../i18n';
+import { photo } from '../lib/assets';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const site = Astro.site ?? new URL('http://localhost:4321');
+const canonical = new URL(localePath(lang), site).href;
+const ogImage = await getImage({ src: photo('hero-wide'), width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
+const ogImageUrl = new URL(ogImage.src, site).href;
+const ogLocales = Object.fromEntries(langs.map((code) => [code, useTranslations(code).meta.ogLocale]));
+---
+
+<!doctype html>
+<html lang={t.meta.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    {langs.map((code) => <link rel="alternate" hreflang={useTranslations(code).meta.htmlLang} href={new URL(localePath(code), site).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL('/', site).href} />
+
+    <meta name="theme-color" content="#412153" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preload" href={antonLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={dmSansLatin} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lunayla" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.hero.photoAlt} />
+    <meta property="og:locale" content={ogLocales[lang]} />
+    {
+      langs
+        .filter((code) => code !== lang)
+        .map((code) => <meta property="og:locale:alternate" content={ogLocales[code]} />)
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+  </head>
+  <body data-lang={lang}>
+    <a class="skip-link" href="#main">{t.a11y.skip}</a>
+    <slot />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

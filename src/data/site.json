@@ -1,0 +1,19 @@
+{
+  "name": "Lunayla",
+  "email": "lunayla.officiel@gmail.com",
+  "spotifyArtistId": "76H4tklEVNYX2sUeGFNJ9U",
+  "latestRelease": {
+    "title": "ESA NOCHE",
+    "url": "https://ffm.to/esanoche_lunayla"
+  },
+  "streaming": [
+    { "id": "spotify", "label": "Spotify", "url": "https://open.spotify.com/artist/76H4tklEVNYX2sUeGFNJ9U" },
+    { "id": "applemusic", "label": "Apple Music", "url": "https://music.apple.com/ca/artist/lunayla/1832188918" },
+    { "id": "youtube", "label": "YouTube", "url": "https://www.youtube.com/@lunayla.jimenez" }
+  ],
+  "socials": [
+    { "id": "instagram", "label": "Instagram", "handle": "@lunayla.jimenez", "url": "https://www.instagram.com/lunayla.jimenez/" },
+    { "id": "tiktok", "label": "TikTok", "handle": "@lunayla.jimenez", "url": "https://www.tiktok.com/@lunayla.jimenez" },
+    { "id": "facebook", "label": "Facebook", "handle": "lunaylajimenez", "url": "https://www.facebook.com/lunaylajimenez" }
+  ]
+}

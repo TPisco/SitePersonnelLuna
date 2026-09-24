@@ -1,0 +1,94 @@
+{
+  "$comment": "Achievements list. Newest first is automatic: items are sorted by `date` (YYYY-MM-DD). Items dated after the build day are shown first with an 'Upcoming' tag. `dateLabel` replaces the displayed date (e.g. 'Fall 2026'). `template: true` appends '(TO BE CHANGED)' in each language: use it for anything not confirmed yet. `source` is for your records only (not shown).",
+  "items": [
+    {
+      "id": "next-show",
+      "date": "2026-10-15",
+      "dateLabel": { "fr": "Automne 2026", "en": "Fall 2026", "es": "Otoño 2026" },
+      "title": { "fr": "Prochain spectacle", "en": "Next show", "es": "Próximo concierto" },
+      "place": { "fr": "Montréal, QC", "en": "Montréal, QC", "es": "Montreal, QC" },
+      "template": true
+    },
+    {
+      "id": "esa-noche",
+      "date": "2026-07-24",
+      "title": { "fr": "Sortie du single « ESA NOCHE »", "en": "“ESA NOCHE” single released", "es": "Lanzamiento del sencillo «ESA NOCHE»" },
+      "place": { "fr": "Un retour à la salsa · L'Univers de Lunayla", "en": "A return to salsa · L'Univers de Lunayla", "es": "Un regreso a la salsa · L'Univers de Lunayla" },
+      "source": "https://open.spotify.com/track/6QaQVVGqDLfGZeHeN6icM1"
+    },
+    {
+      "id": "desconocidos",
+      "date": "2026-04-24",
+      "title": { "fr": "« DESCONOCIDOS » avec MAL PORTADO", "en": "“DESCONOCIDOS” with MAL PORTADO", "es": "«DESCONOCIDOS» con MAL PORTADO" },
+      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
+      "source": "https://open.spotify.com/track/77pEbWqD12zxXM0TSQhqle"
+    },
+    {
+      "id": "nouveaux-sons",
+      "date": "2026-03-17",
+      "title": { "fr": "« Le Digo No (Sped Up) » diffusée à Nouveaux sons", "en": "“Le Digo No (Sped Up)” played on Nouveaux sons", "es": "«Le Digo No (Sped Up)» sonó en Nouveaux sons" },
+      "place": { "fr": "ICI Musique · Radio-Canada", "en": "ICI Musique · Radio-Canada", "es": "ICI Musique · Radio-Canada" },
+      "source": "https://ici.radio-canada.ca/ohdio/musique/emissions/nouveaux-sons/episodes/1096390/mardi-17-mars-2026"
+    },
+    {
+      "id": "le-digo-no",
+      "date": "2026-01-30",
+      "title": { "fr": "Sortie de « Le Digo No » et de sa version sped up", "en": "“Le Digo No” and its sped-up version released", "es": "Lanzamiento de «Le Digo No» y su versión sped up" },
+      "place": { "fr": "Single · coécrit par Lunayla", "en": "Single · co-written by Lunayla", "es": "Sencillo · coescrito por Lunayla" },
+      "source": "https://open.spotify.com/track/04jHBXFKFR7ttCvcszlXIX"
+    },
+    {
+      "id": "le-hablo-asi",
+      "date": "2025-11-29",
+      "title": { "fr": "Sortie de « Le Hablo Asi »", "en": "“Le Hablo Asi” released", "es": "Lanzamiento de «Le Hablo Asi»" },
+      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
+      "source": "https://open.spotify.com/track/060P7wbPIiOacCkMLa1IvP"
+    },
+    {
+      "id": "tu-y-yo",
+      "date": "2025-08-14",
+      "title": { "fr": "Sortie de « Tú Y Yo »", "en": "“Tú Y Yo” released", "es": "Lanzamiento de «Tú Y Yo»" },
+      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
+      "source": "https://open.spotify.com/track/3ETcrNmSa1cNVlMQk5G2Cb"
+    },
+    {
+      "id": "la-voix",
+      "date": "2023-03-05",
+      "title": { "fr": "La Voix : ronde des Duels, équipe Mario Pelchat", "en": "La Voix: Battle round, Team Mario Pelchat", "es": "La Voix: ronda de Duelos, equipo de Mario Pelchat" },
+      "place": { "fr": "TVA · en duo avec Jephté Phélice sur « Tel un seul homme »", "en": "TVA · duet with Jephté Phélice on “Tel un seul homme”", "es": "TVA · a dúo con Jephté Phélice en «Tel un seul homme»" },
+      "source": "https://www.journaldemontreal.com/2023/03/05/la-voix-le-pouvoir-des-coachs"
+    },
+    {
+      "id": "granby",
+      "date": "2022-12-31",
+      "dateLabel": { "fr": "Avant 2023", "en": "Before 2023", "es": "Antes de 2023" },
+      "title": { "fr": "Petit Festival de la chanson de Granby", "en": "Petit Festival de la chanson de Granby", "es": "Petit Festival de la chanson de Granby" },
+      "place": { "fr": "Granby, QC", "en": "Granby, QC", "es": "Granby, QC" },
+      "source": "https://www.tvaplus.ca/article/lunayla-jimenez-1091827444"
+    },
+    {
+      "id": "saint-hubert",
+      "date": "2022-12-31",
+      "dateLabel": { "fr": "Avant 2023", "en": "Before 2023", "es": "Antes de 2023" },
+      "title": { "fr": "Festival de la famille de Saint-Hubert", "en": "Festival de la famille de Saint-Hubert", "es": "Festival de la famille de Saint-Hubert" },
+      "place": { "fr": "Saint-Hubert, QC", "en": "Saint-Hubert, QC", "es": "Saint-Hubert, QC" },
+      "source": "https://www.tvaplus.ca/article/lunayla-jimenez-1091827444"
+    },
+    {
+      "id": "en-spectacle",
+      "date": "2022-12-31",
+      "dateLabel": { "fr": "Avant 2023", "en": "Before 2023", "es": "Antes de 2023" },
+      "title": { "fr": "Primaire en spectacle et Secondaire en spectacle", "en": "Primaire en spectacle and Secondaire en spectacle", "es": "Primaire en spectacle y Secondaire en spectacle" },
+      "place": { "fr": "Scènes scolaires du Québec", "en": "Québec school stage programs", "es": "Programas escénicos escolares de Quebec" },
+      "source": "https://www.tvaplus.ca/article/lunayla-jimenez-1091827444"
+    },
+    {
+      "id": "first-show",
+      "date": "2022-12-31",
+      "dateLabel": { "fr": "Avant 2023", "en": "Before 2023", "es": "Antes de 2023" },
+      "title": { "fr": "Premier spectacle", "en": "First show", "es": "Primer concierto" },
+      "place": { "fr": "À l'église", "en": "In a church", "es": "En una iglesia" },
+      "source": "https://www.tvaplus.ca/article/lunayla-jimenez-1091827444"
+    }
+  ]
+}

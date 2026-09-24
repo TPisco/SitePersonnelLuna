@@ -1,0 +1,154 @@
+---
+import Icon from './Icon.astro';
+import type { Dict } from '../i18n';
+
+// Horizontal scrolling band. Decorative (aria-hidden), with a pause button
+// for WCAG 2.2.2; the animation is off under prefers-reduced-motion.
+interface Props {
+  words: string[];
+  t: Dict;
+  variant?: 'magenta' | 'outline';
+}
+
+const { words, t, variant = 'magenta' } = Astro.props;
+// Repeat the words so one group is wider than any screen, then show it twice for a seamless loop.
+const group = Array.from({ length: 3 }, () => words).flat();
+---
+
+<div class:list={['marquee', `marquee--${variant}`]} data-marquee>
+  <div class="marquee__track" aria-hidden="true">
+    {
+      [0, 1].map(() => (
+        <div class="marquee__group">
+          {group.map((word) => (
+            <>
+              <span class="marquee__word">{word}</span>
+              <span class="marquee__star">✦</span>
+            </>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+  <button
+    class="marquee__toggle"
+    type="button"
+    aria-pressed="false"
+    data-marquee-toggle
+    data-label-pause={t.a11y.marqueePause}
+    data-label-play={t.a11y.marqueePlay}
+  >
+    <span class="sr-only" data-marquee-label>{t.a11y.marqueePause}</span>
+    <Icon name="pause" size={18} class="icon-pause" />
+    <Icon name="play" size={18} class="icon-play" />
+  </button>
+</div>
+
+<style>
+  .marquee {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-block: clamp(0.7rem, 1.8vw, 1.1rem);
+  }
+
+  .marquee--magenta {
+    background: var(--magenta);
+    color: var(--offwhite);
+    --focus: var(--offwhite);
+  }
+
+  .marquee--outline {
+    background: var(--purple);
+    color: var(--lavender);
+    border-block: 2px solid rgb(186 148 207 / 0.35);
+    --focus: var(--yellow);
+  }
+
+  .marquee__track {
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee__group {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    padding-right: clamp(1rem, 2.5vw, 2rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .marquee--outline .marquee__word {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--lavender);
+  }
+
+  .marquee__star {
+    font-size: 0.55em;
+    color: var(--yellow);
+  }
+  .marquee--magenta .marquee__star {
+    color: var(--offwhite);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee__track {
+      animation: marquee 38s linear infinite;
+    }
+    .marquee--outline .marquee__track {
+      animation-direction: reverse;
+      animation-duration: 46s;
+    }
+    .marquee:hover .marquee__track,
+    .marquee[data-paused] .marquee__track {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee__toggle {
+    position: absolute;
+    right: 0.5rem;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--purple);
+    color: var(--offwhite);
+    opacity: 0.85;
+  }
+  .marquee--outline .marquee__toggle {
+    background: var(--lavender);
+    color: var(--purple);
+  }
+  .marquee__toggle:hover {
+    opacity: 1;
+  }
+  .marquee__toggle .icon-play,
+  .marquee[data-paused] .marquee__toggle .icon-pause {
+    display: none;
+  }
+  .marquee[data-paused] .marquee__toggle .icon-play {
+    display: block;
+  }
+
+  /* No motion, nothing to pause. */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__toggle {
+      display: none;
+    }
+  }
+</style>

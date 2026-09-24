@@ -1,0 +1,56 @@
+---
+// The root only picks a language: saved choice → browser language (EN/ES) → French.
+import { defaultLang, langs, localePath } from '../i18n';
+
+const fallback = localePath(defaultLang);
+---
+
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Lunayla</title>
+    <link rel="canonical" href={fallback} />
+    <script is:inline define:vars={{ langs, fallback }}>
+      (function () {
+        var target = fallback;
+        try {
+          var saved = localStorage.getItem('lang');
+          if (saved && langs.indexOf(saved) !== -1) {
+            target = '/' + saved + '/';
+          } else {
+            var prefs = navigator.languages || [navigator.language || ''];
+            for (var i = 0; i < prefs.length; i++) {
+              var code = String(prefs[i]).slice(0, 2).toLowerCase();
+              if (langs.indexOf(code) !== -1) {
+                target = '/' + code + '/';
+                break;
+              }
+            }
+          }
+        } catch (e) {}
+        location.replace(target + location.hash);
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content={`0; url=${fallback}`} /></noscript>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #412153;
+        color: #f9f8f4;
+        font-family: system-ui, sans-serif;
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href={fallback}>Lunayla</a></p>
+  </body>
+</html>

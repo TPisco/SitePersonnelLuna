@@ -1,0 +1,27 @@
+---
+// Decorative shapes from the color system: stars, dots, rings and sparkles.
+// Always aria-hidden. Position them with a class from the parent component.
+interface Props {
+  kind: 'star' | 'dot' | 'ring' | 'sparkle';
+  color?: 'yellow' | 'orange' | 'offwhite' | 'lavender' | 'magenta' | 'purple';
+  size?: number;
+  motion?: 'spin' | 'float';
+  class?: string;
+}
+
+// `...rest` carries the parent's scoped-style attribute, so parents can position the sticker.
+const { kind, color = 'yellow', size = 64, motion, class: className, ...rest } = Astro.props;
+const fill = `var(--${color})`;
+const classes = ['sticker', motion && `sticker--${motion}`, className].filter(Boolean).join(' ');
+---
+
+<svg class={classes} width={size} height={size} viewBox="0 0 100 100" aria-hidden="true" focusable="false" {...rest}>
+  {kind === 'star' && <polygon fill={fill} points="50,3 61.5,36.5 97,37 68.5,58.5 79,93 50,72.5 21,93 31.5,58.5 3,37 38.5,36.5" />}
+  {kind === 'dot' && <circle fill={fill} cx="50" cy="50" r="50" />}
+  {kind === 'ring' && <circle fill="none" stroke={fill} stroke-width="8" cx="50" cy="50" r="44" />}
+  {
+    kind === 'sparkle' && (
+      <path fill={fill} d="M50 0C53 33 67 47 100 50C67 53 53 67 50 100C47 67 33 53 0 50C33 47 47 33 50 0Z" />
+    )
+  }
+</svg>

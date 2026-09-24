@@ -1,0 +1,170 @@
+---
+import Icon from './Icon.astro';
+import Marquee from './Marquee.astro';
+import site from '../data/site.json';
+import { languages, langs, localePath, type Dict, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  t: Dict;
+}
+
+const { lang, t } = Astro.props;
+const year = new Date().getFullYear();
+const sections = ['about', 'music', 'achievements', 'gallery', 'contact'] as const;
+---
+
+<footer class="site-footer surface-purple">
+  <Marquee words={t.marquee.bottom} t={t} variant="outline" />
+
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="site-footer__logo display" href="#top">{site.name}</a>
+      <p class="site-footer__tagline" lang={t.hero.taglineLang}>{t.hero.tagline}</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label={t.a11y.footerNav}>
+      <ul role="list">
+        {
+          sections.map((id) => (
+            <li>
+              <a href={`#${id}`}>{t.nav[id]}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <ul role="list" class="site-footer__icons" aria-label={t.a11y.platforms}>
+      {
+        [...site.streaming, ...site.socials].map((link) => (
+          <li>
+            <a class="icon-btn" href={link.url} target="_blank" rel="noopener">
+              <Icon name={link.id} />
+              <span class="sr-only">
+                {link.label} {t.a11y.newTab}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="site-footer__bottom">
+      <p>© {year} {site.name}. {t.footer.rights}</p>
+      <ul role="list" class="site-footer__langs">
+        {
+          langs.map((code) => (
+            <li>
+              <a href={localePath(code)} hreflang={code} lang={code} data-lang-link={code} aria-current={code === lang ? 'true' : undefined}>
+                {languages[code]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="site-footer__top" href="#top">
+        {t.footer.backToTop}
+        <Icon name="arrow-up" size={18} />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer__inner {
+    display: grid;
+    gap: 2.5rem;
+    padding-block: clamp(3rem, 8vw, 5rem) 2rem;
+  }
+
+  .site-footer__logo {
+    font-size: clamp(3.5rem, 14vw, 7rem);
+    line-height: 0.9;
+    text-decoration: none;
+    text-shadow: 0.035em 0.035em 0 var(--magenta);
+  }
+  .site-footer__tagline {
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--lavender);
+  }
+
+  .site-footer__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .site-footer__nav a {
+    display: inline-block;
+    padding-block: 0.4rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .site-footer__nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--magenta);
+    text-decoration-thickness: 3px;
+  }
+
+  .site-footer__icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(186 148 207 / 0.35);
+    font-size: 0.875rem;
+    color: var(--lavender);
+  }
+  .site-footer__langs {
+    display: flex;
+    gap: 1rem;
+  }
+  .site-footer__langs a,
+  .site-footer__top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    text-decoration: none;
+  }
+  .site-footer__langs a[aria-current='true'] {
+    color: var(--offwhite);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--magenta);
+    text-decoration-thickness: 2px;
+  }
+  .site-footer__langs a:hover,
+  .site-footer__top:hover {
+    color: var(--offwhite);
+  }
+
+  @media (min-width: 900px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+    .site-footer__nav {
+      justify-self: end;
+    }
+    .site-footer__icons {
+      grid-column: 1 / -1;
+    }
+    .site-footer__bottom {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

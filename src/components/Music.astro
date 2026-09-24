@@ -1,0 +1,396 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import Icon from './Icon.astro';
+import Sticker from './Sticker.astro';
+import site from '../data/site.json';
+import music from '../data/music.json';
+import { cover, thumb } from '../lib/assets';
+import { fill, type Dict } from '../i18n';
+
+interface Props {
+  t: Dict;
+}
+
+const { t } = Astro.props;
+const latest = music.singles[0];
+const youtube = site.streaming.find((s) => s.id === 'youtube');
+const spotifyEmbed = `https://open.spotify.com/embed/artist/${site.spotifyArtistId}?utm_source=generator&theme=0`;
+type VideoKind = keyof Dict['music']['videoKinds'];
+---
+
+<section class="section surface-lavender music" id="music" aria-labelledby="music-title" data-section>
+  <Sticker kind="star" color="yellow" size={110} motion="float" class="music__star" />
+  <Sticker kind="dot" color="offwhite" size={22} class="music__dot" />
+
+  <div class="container">
+    <SectionHead id="music-title" title={t.music.title} />
+    <p class="lead music__intro" data-reveal>{t.music.intro}</p>
+
+    <div class="music__feature" data-reveal>
+      <!-- Click-to-load Spotify player: nothing from Spotify loads until the click. -->
+      <div class="player" data-facade data-src={spotifyEmbed} data-title={t.music.playerTitle} data-kind="spotify">
+        <Image
+          src={cover(latest.cover)}
+          alt={fill(t.music.coverAlt, { title: latest.title })}
+          widths={[260, 400, 520]}
+          sizes="(min-width: 600px) 260px, 60vw"
+          class="player__cover"
+          loading="lazy"
+        />
+        <div class="player__body">
+          <p class="eyebrow player__eyebrow">{t.music.latest}</p>
+          <p class="player__title display">{latest.title}</p>
+          <button type="button" class="btn btn--magenta" data-facade-load>
+            <Icon name="spotify" />
+            {t.music.playerLoad}
+          </button>
+          <p class="player__note">{t.music.playerNote}</p>
+        </div>
+      </div>
+
+      <div class="platforms">
+        <ul role="list" class="platforms__list">
+          {
+            site.streaming.map((platform) => (
+              <li>
+                <a class="platform" href={platform.url} target="_blank" rel="noopener">
+                  <Icon name={platform.id} size={28} />
+                  <span>{fill(t.music.listenOn, { platform: platform.label })}</span>
+                  <Icon name="arrow-up-right" class="platform__arrow" />
+                  <span class="sr-only">{t.a11y.newTab}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="btn btn--outline platforms__all" href={site.latestRelease.url} target="_blank" rel="noopener">
+          {t.music.latestCta} · {site.latestRelease.title}
+          <Icon name="arrow-up-right" />
+          <span class="sr-only">{t.a11y.newTab}</span>
+        </a>
+      </div>
+    </div>
+
+    <h3 class="display title-md music__sub" data-reveal>{t.music.singles}</h3>
+    <ul role="list" class="singles" data-reveal>
+      {
+        music.singles.map((single) => (
+          <li>
+            <a class="single" href={single.url} target="_blank" rel="noopener">
+              <Image
+                src={cover(single.cover)}
+                alt={fill(t.music.coverAlt, { title: single.title })}
+                widths={[200, 320, 400, 480]}
+                sizes="(min-width: 1100px) 220px, (min-width: 700px) 30vw, 45vw"
+                class="single__cover"
+                loading="lazy"
+              />
+              <span class="single__title">{single.title}</span>
+              <span class="single__meta">
+                {single.featuring && `${fill(t.music.featuring, { name: single.featuring })} · `}
+                {single.date.slice(0, 4)}
+              </span>
+              <span class="sr-only">{t.a11y.newTab}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3 class="display title-md music__sub" data-reveal>{t.music.videos}</h3>
+    <ul role="list" class="videos" data-reveal>
+      {
+        music.videos.map((video) => (
+          <li class="video">
+            <div
+              class="video__frame"
+              data-facade
+              data-kind="youtube"
+              data-src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`}
+              data-title={video.title}
+            >
+              <button type="button" class="video__btn" data-facade-load aria-label={fill(t.music.playVideo, { title: video.title })}>
+                <Image src={thumb(video.thumb)} alt="" widths={[400, 640, 960]} sizes="(min-width: 1000px) 390px, (min-width: 700px) 46vw, 92vw" class="video__img" loading="lazy" />
+                <span class="video__play" aria-hidden="true">
+                  <Icon name="play" size={30} />
+                </span>
+              </button>
+            </div>
+            <p class="video__meta">
+              <span class="tag video__tag">{t.music.videoKinds[video.kind as VideoKind]}</span>
+              <span class="video__title">{video.title}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      youtube && (
+        <p class="music__more" data-reveal>
+          <a class="btn btn--purple" href={youtube.url} target="_blank" rel="noopener">
+            <Icon name="youtube" />
+            {t.music.allVideos}
+            <span class="sr-only">{t.a11y.newTab}</span>
+          </a>
+        </p>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .music__star {
+    top: clamp(2rem, 6vw, 5rem);
+    right: 7vw;
+    width: clamp(56px, 9vw, 120px);
+    height: auto;
+    rotate: -10deg;
+  }
+  .music__dot {
+    top: clamp(4rem, 12vw, 9rem);
+    right: 22vw;
+  }
+
+  .music__intro {
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .music__feature {
+    display: grid;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  /* ---------- Spotify facade ---------- */
+  .player {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    min-height: 352px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: var(--radius);
+    background: var(--purple);
+    color: var(--offwhite);
+    --focus: var(--yellow);
+  }
+  .player__cover {
+    width: min(100%, 260px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 4px solid var(--lavender);
+    border-radius: var(--radius-sm);
+    rotate: -3deg;
+  }
+  .player__body {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+  }
+  .player__eyebrow {
+    color: var(--lavender);
+  }
+  .player__title {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+  }
+  .player__note {
+    font-size: 0.875rem;
+    color: var(--lavender);
+  }
+  .player.is-loaded {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    background: #121212;
+  }
+
+  /* ---------- Platform buttons ---------- */
+  .platforms {
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+  }
+  .platforms__list {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .platform {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 64px;
+    padding: 0.9rem 1.5rem;
+    border-radius: 999px;
+    background: var(--purple);
+    color: var(--offwhite);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+    --focus: var(--purple);
+  }
+  .platform:hover {
+    background: var(--magenta);
+    color: var(--white);
+    transform: translateX(4px);
+  }
+  .platform__arrow {
+    margin-left: auto;
+  }
+  .platforms__all {
+    justify-self: stretch;
+  }
+  @media (min-width: 600px) {
+    .platforms__all {
+      justify-self: start;
+    }
+  }
+
+  /* ---------- Singles ---------- */
+  .music__sub {
+    margin: clamp(3.5rem, 8vw, 5.5rem) 0 1.5rem;
+  }
+
+  .singles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 1.75rem);
+  }
+  .single {
+    display: grid;
+    gap: 0.35rem;
+    text-decoration: none;
+  }
+  .single__cover {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 4px solid var(--purple);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .single:hover .single__cover {
+    transform: translateY(-4px) rotate(-2deg);
+    box-shadow: 6px 6px 0 var(--magenta);
+  }
+  .single__title {
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .single__meta {
+    font-size: 0.875rem;
+  }
+
+  /* ---------- Videos ---------- */
+  .videos {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+  }
+  .video__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 4px solid var(--purple);
+    border-radius: 22px;
+    background: var(--purple);
+  }
+  .video__btn {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    --focus: var(--yellow);
+  }
+  .video__btn:focus-visible {
+    outline-offset: -6px;
+  }
+  .video__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .video__btn:hover .video__img {
+    transform: scale(1.04);
+  }
+  .video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--magenta);
+    color: var(--white);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 6px 24px rgb(65 33 83 / 0.45);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .video__btn:hover .video__play {
+    background: var(--orange);
+    color: var(--purple);
+  }
+  .video__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .video__tag {
+    background: var(--purple);
+    color: var(--offwhite);
+  }
+  .video__title {
+    font-weight: 700;
+  }
+
+  .music__more {
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 600px) {
+    .player {
+      grid-template-columns: auto 1fr;
+    }
+    .player__cover {
+      width: clamp(180px, 22vw, 260px);
+    }
+  }
+
+  @media (min-width: 700px) {
+    .singles {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .videos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .music__feature {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+    .videos {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .singles {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+</style>

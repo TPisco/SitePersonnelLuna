@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "htmlLang": "fr-CA",
+    "ogLocale": "fr_CA",
+    "title": "Lunayla | Artiste R&B et rythmes latins, Montréal",
+    "description": "Site officiel de Lunayla, artiste indépendante montréalaise d'origine cubaine. R&B contemporain et rythmes latins : écoute ESA NOCHE, découvre son parcours et écris-lui."
+  },
+  "a11y": {
+    "skip": "Aller au contenu",
+    "mainNav": "Navigation principale",
+    "footerNav": "Navigation du pied de page",
+    "language": "Choisir la langue",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu",
+    "newTab": "(ouvre un nouvel onglet)",
+    "platforms": "Plateformes d'écoute et réseaux sociaux",
+    "marqueePause": "Mettre le texte défilant en pause",
+    "marqueePlay": "Relancer le texte défilant"
+  },
+  "nav": {
+    "about": "À propos",
+    "music": "Musique",
+    "achievements": "Réalisations",
+    "gallery": "Galerie",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "R&B × rythmes latins",
+    "origin": "Montréal | Cuba",
+    "tagline": "Por el amor del arte",
+    "taglineLang": "es",
+    "listen": "Écouter",
+    "latest": "Dernière sortie : {title}",
+    "photoAlt": "Lunayla assise devant une porte violette, un foulard magenta noué en haut, regarde l'objectif."
+  },
+  "marquee": {
+    "top": [
+      "Lunayla",
+      "Musique",
+      "Music",
+      "Música",
+      "R&B",
+      "Salsa",
+      "Montréal",
+      "Cuba"
+    ],
+    "bottom": [
+      "Por el amor del arte",
+      "Lunayla",
+      "Montréal | Cuba"
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "paragraphs": [
+      "Lunayla est une artiste indépendante de Montréal, d'origine cubaine. Elle marie le R&B contemporain aux rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage.",
+      "Chanteuse, elle joue aussi du piano, du saxophone alto et de la flûte traversière. Elle cosigne ses chansons, dont « Le Digo No » et « ESA NOCHE ». En 2023, elle participe à La Voix sur TVA, dans l'équipe de Mario Pelchat.",
+      "Avec « ESA NOCHE », elle revient à la salsa, ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d'un monde, d'une langue et d'un son à l'autre : tout ça, por el amor del arte."
+    ],
+    "facts": [
+      "Montréal | Cuba",
+      "R&B × rythmes latins",
+      "Voix · piano · sax alto · flûte"
+    ],
+    "photoAlt": "Lunayla en studio, micro à la main, un bandana sur la tête, regarde l'objectif."
+  },
+  "music": {
+    "title": "Musique",
+    "intro": "Le dernier single, les sessions acoustiques et le reste du catalogue. Choisis ta plateforme.",
+    "listenOn": "Écouter sur {platform}",
+    "playerTitle": "Lecteur Spotify de Lunayla",
+    "playerLoad": "Écouter ici",
+    "playerNote": "Le lecteur Spotify se charge seulement si tu cliques.",
+    "latest": "Dernière sortie",
+    "latestCta": "Toutes les plateformes",
+    "singles": "Singles",
+    "featuring": "avec {name}",
+    "coverAlt": "Pochette du single {title}",
+    "videos": "Vidéos et sessions",
+    "videoKinds": {
+      "live": "Live",
+      "visualizer": "Visualizer",
+      "acoustic": "Acoustique"
+    },
+    "playVideo": "Lire la vidéo : {title}",
+    "allVideos": "Toutes les vidéos sur YouTube"
+  },
+  "achievements": {
+    "title": "Réalisations",
+    "intro": "Sorties, scènes et moments marquants.",
+    "upcoming": "À venir",
+    "photoAlt": "Lunayla chante sur scène avec un guitariste et un percussionniste pendant la session live d'Esa Noche."
+  },
+  "gallery": {
+    "title": "Galerie",
+    "open": "Agrandir la photo",
+    "close": "Fermer",
+    "prev": "Photo précédente",
+    "next": "Photo suivante",
+    "counter": "Photo {i} sur {n}"
+  },
+  "contact": {
+    "title": "Écris-moi",
+    "intro": "Pour un spectacle, une collaboration, les médias ou simplement pour dire bonjour : écris-moi.",
+    "emailLabel": "Mon courriel",
+    "copy": "Copier",
+    "copied": "Courriel copié !",
+    "copyFailed": "Copie impossible, sélectionne l'adresse à la main.",
+    "follow": "Suis-moi",
+    "form": {
+      "title": "Envoie-moi un message",
+      "name": "Nom",
+      "namePlaceholder": "Ton nom",
+      "email": "Ton courriel",
+      "emailPlaceholder": "toi@exemple.com",
+      "message": "Message",
+      "messagePlaceholder": "Ton message…",
+      "submit": "Envoyer",
+      "note": "Le bouton ouvre ton application courriel avec ton message déjà prêt. Tu n'as plus qu'à l'envoyer.",
+      "subject": "Message du site web de {name}",
+      "someone": "quelqu'un"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "backToTop": "Retour en haut"
+  },
+  "template": "(À CHANGER)"
+}

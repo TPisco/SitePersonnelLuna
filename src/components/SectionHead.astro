@@ -1,0 +1,15 @@
+---
+// Big condensed title followed by a thin line extending to the right.
+interface Props {
+  id: string;
+  title: string;
+  level?: 'h2' | 'h3';
+}
+
+const { id, title, level: Tag = 'h2' } = Astro.props;
+---
+
+<div class="section-head" data-reveal>
+  <Tag id={id} class="display title-xl">{title}</Tag>
+  <span class="section-head__rule" aria-hidden="true"></span>
+</div>

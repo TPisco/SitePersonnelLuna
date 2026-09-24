@@ -1,0 +1,212 @@
+---
+import { Image, getImage } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import Icon from './Icon.astro';
+import Sticker from './Sticker.astro';
+import gallery from '../data/gallery.json';
+import { photo } from '../lib/assets';
+import { type Dict, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  t: Dict;
+}
+
+const { lang, t } = Astro.props;
+
+// Each thumbnail links to a larger optimized version: it works without JS,
+// and the script turns it into a lightbox.
+const items = await Promise.all(
+  gallery.items.map(async (item) => {
+    const src = photo(item.image);
+    const large = await getImage({ src, width: 1280, format: 'webp', quality: 80 });
+    return { src, alt: item.alt[lang as keyof typeof item.alt], large: large.src };
+  }),
+);
+---
+
+<section class="section surface-lavender gallery" id="gallery" aria-labelledby="gallery-title" data-section>
+  <Sticker kind="star" color="yellow" size={72} motion="float" class="gallery__star" />
+
+  <div class="container">
+    <SectionHead id="gallery-title" title={t.gallery.title} />
+
+    <ul role="list" class="gallery__grid" data-gallery>
+      {
+        items.map((item, i) => (
+          <li data-reveal>
+            <a class="gallery__item" href={item.large} data-lightbox-index={i} data-alt={item.alt}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                widths={[480, 720, 960]}
+                sizes="(min-width: 800px) 600px, 92vw"
+                class="gallery__img"
+                loading="lazy"
+              />
+              <span class="sr-only">{t.gallery.open}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <dialog class="lightbox" data-lightbox aria-label={t.gallery.title} data-counter={t.gallery.counter}>
+    <div class="lightbox__inner">
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" src="" alt="" data-lightbox-img />
+        <figcaption class="lightbox__caption">
+          <span data-lightbox-caption></span>
+          <span class="lightbox__counter" data-lightbox-counter></span>
+        </figcaption>
+      </figure>
+      <button type="button" class="lightbox__btn lightbox__prev" data-lightbox-prev>
+        <Icon name="chevron-left" />
+        <span class="sr-only">{t.gallery.prev}</span>
+      </button>
+      <button type="button" class="lightbox__btn lightbox__next" data-lightbox-next>
+        <Icon name="chevron-right" />
+        <span class="sr-only">{t.gallery.next}</span>
+      </button>
+      <button type="button" class="lightbox__btn lightbox__close" data-lightbox-close autofocus>
+        <Icon name="close" />
+        <span class="sr-only">{t.gallery.close}</span>
+      </button>
+    </div>
+  </dialog>
+</section>
+
+<style>
+  .gallery__star {
+    top: clamp(2rem, 6vw, 5rem);
+    right: 9vw;
+    rotate: 16deg;
+  }
+
+  .gallery__grid {
+    display: grid;
+    gap: clamp(1rem, 3vw, 1.75rem);
+  }
+
+  .gallery__item {
+    display: block;
+    overflow: hidden;
+    border: var(--border-thick) solid var(--purple);
+    border-radius: var(--radius);
+    background: var(--purple);
+  }
+  .gallery__img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gallery__item:hover .gallery__img {
+    transform: scale(1.05) rotate(-1deg);
+  }
+
+  @media (min-width: 800px) {
+    .gallery__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gallery__grid li:nth-child(even) {
+      translate: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .gallery__grid {
+      padding-bottom: clamp(1.5rem, 4vw, 3rem);
+    }
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--offwhite);
+    --focus: var(--yellow);
+  }
+  .lightbox::backdrop {
+    background: rgb(65 33 83 / 0.94);
+  }
+  .lightbox__inner {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 4.5rem var(--gutter) 2rem;
+  }
+  .lightbox__figure {
+    display: grid;
+    gap: 0.9rem;
+    max-width: min(100%, 1200px);
+  }
+  .lightbox__img {
+    max-height: calc(100vh - 11rem);
+    max-height: calc(100dvh - 11rem);
+    width: auto;
+    margin-inline: auto;
+    border: var(--border-thick) solid var(--lavender);
+    border-radius: var(--radius-sm);
+  }
+  .lightbox__caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+  .lightbox__counter {
+    color: var(--lavender);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .lightbox__btn {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--offwhite);
+    border-radius: 50%;
+    background: var(--purple);
+    color: var(--offwhite);
+    transition: background-color 0.2s ease;
+  }
+  .lightbox__btn:hover {
+    background: var(--magenta);
+    border-color: var(--magenta);
+    color: var(--white);
+  }
+  .lightbox__close {
+    top: 1rem;
+    right: 1rem;
+  }
+  .lightbox__prev,
+  .lightbox__next {
+    top: 50%;
+    translate: 0 -50%;
+  }
+  .lightbox__prev {
+    left: 1rem;
+  }
+  .lightbox__next {
+    right: 1rem;
+  }
+
+  @media (max-width: 699px) {
+    .lightbox__prev,
+    .lightbox__next {
+      top: auto;
+      bottom: 1rem;
+      translate: none;
+    }
+    .lightbox__inner {
+      padding-bottom: 5.5rem;
+    }
+  }
+</style>

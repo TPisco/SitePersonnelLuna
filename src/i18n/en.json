@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "htmlLang": "en-CA",
+    "ogLocale": "en_CA",
+    "title": "Lunayla | R&B and Latin rhythms artist, Montréal",
+    "description": "Official website of Lunayla, an independent Montréal artist with Cuban roots. Contemporary R&B meets Latin rhythms: listen to ESA NOCHE, explore her journey and get in touch."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "mainNav": "Main navigation",
+    "footerNav": "Footer navigation",
+    "language": "Choose language",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "newTab": "(opens in a new tab)",
+    "platforms": "Streaming platforms and social media",
+    "marqueePause": "Pause scrolling text",
+    "marqueePlay": "Resume scrolling text"
+  },
+  "nav": {
+    "about": "About",
+    "music": "Music",
+    "achievements": "Achievements",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "R&B × Latin rhythms",
+    "origin": "Montréal | Cuba",
+    "tagline": "Por el amor del arte",
+    "taglineLang": "es",
+    "listen": "Listen",
+    "latest": "Latest release: {title}",
+    "photoAlt": "Lunayla sits in front of a purple door, wearing a magenta scarf top, looking at the camera."
+  },
+  "marquee": {
+    "top": [
+      "Lunayla",
+      "Musique",
+      "Music",
+      "Música",
+      "R&B",
+      "Salsa",
+      "Montréal",
+      "Cuba"
+    ],
+    "bottom": [
+      "Por el amor del arte",
+      "Lunayla",
+      "Montréal | Cuba"
+    ]
+  },
+  "about": {
+    "title": "About",
+    "paragraphs": [
+      "Lunayla is an independent artist from Montréal with Cuban roots. She blends contemporary R&B with Latin rhythms into a vibrant, sensual sound grounded in her heritage.",
+      "Besides singing, she plays piano, alto saxophone and flute. She co-writes her songs, including “Le Digo No” and “ESA NOCHE”. In 2023, she took part in La Voix on TVA, on Team Mario Pelchat.",
+      "With “ESA NOCHE”, she returns to salsa, the rhythms that shaped her musical identity. Feminine energy, confidence and the freedom to move between worlds, languages and sounds: all of it por el amor del arte."
+    ],
+    "facts": [
+      "Montréal | Cuba",
+      "R&B × Latin rhythms",
+      "Vocals · piano · alto sax · flute"
+    ],
+    "photoAlt": "Lunayla in the studio, holding a microphone and wearing a bandana, looks at the camera."
+  },
+  "music": {
+    "title": "Music",
+    "intro": "The latest single, the acoustic sessions and the rest of the catalogue. Pick your platform.",
+    "listenOn": "Listen on {platform}",
+    "playerTitle": "Lunayla Spotify player",
+    "playerLoad": "Listen here",
+    "playerNote": "The Spotify player only loads when you click.",
+    "latest": "Latest release",
+    "latestCta": "All platforms",
+    "singles": "Singles",
+    "featuring": "with {name}",
+    "coverAlt": "Cover art for the single {title}",
+    "videos": "Videos and sessions",
+    "videoKinds": {
+      "live": "Live",
+      "visualizer": "Visualizer",
+      "acoustic": "Acoustic"
+    },
+    "playVideo": "Play video: {title}",
+    "allVideos": "All videos on YouTube"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "intro": "Releases, stages and milestones.",
+    "upcoming": "Upcoming",
+    "photoAlt": "Lunayla sings on stage with a guitarist and a percussionist during the Esa Noche live session."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "open": "Enlarge photo",
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "counter": "Photo {i} of {n}"
+  },
+  "contact": {
+    "title": "Write to me",
+    "intro": "Shows, collaborations, press, or just to say hi: write to me.",
+    "emailLabel": "My email",
+    "copy": "Copy",
+    "copied": "Email copied!",
+    "copyFailed": "Couldn't copy, please select the address manually.",
+    "follow": "Follow me",
+    "form": {
+      "title": "Send me a message",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Your email",
+      "emailPlaceholder": "you@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message…",
+      "submit": "Send",
+      "note": "The button opens your email app with your message ready to go. All you have to do is hit send.",
+      "subject": "Website message from {name}",
+      "someone": "someone"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "backToTop": "Back to top"
+  },
+  "template": "(TO BE CHANGED)"
+}

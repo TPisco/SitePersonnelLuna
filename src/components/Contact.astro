@@ -1,0 +1,236 @@
+---
+import SectionHead from './SectionHead.astro';
+import Icon from './Icon.astro';
+import Sticker from './Sticker.astro';
+import site from '../data/site.json';
+import type { Dict } from '../i18n';
+
+interface Props {
+  t: Dict;
+}
+
+const { t } = Astro.props;
+const f = t.contact.form;
+---
+
+<section class="section surface-offwhite contact" id="contact" aria-labelledby="contact-title" data-section>
+  <Sticker kind="star" color="yellow" size={96} motion="spin" class="contact__star" />
+  <Sticker kind="dot" color="orange" size={40} class="contact__dot" />
+
+  <div class="container">
+    <SectionHead id="contact-title" title={t.contact.title} />
+
+    <div class="contact__grid">
+      <div class="contact__info" data-reveal>
+        <p class="lead">{t.contact.intro}</p>
+
+        <div class="contact__email-block">
+          <p class="eyebrow">{t.contact.emailLabel}</p>
+          <a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a>
+          <div class="contact__actions">
+            <a class="btn btn--magenta" href={`mailto:${site.email}`}>
+              <Icon name="mail" />
+              {t.contact.title}
+            </a>
+            <button
+              type="button"
+              class="btn btn--outline"
+              data-copy-email={site.email}
+              data-label-copied={t.contact.copied}
+              data-label-failed={t.contact.copyFailed}
+            >
+              <Icon name="copy" />
+              {t.contact.copy}
+            </button>
+          </div>
+          <p class="contact__status" role="status" aria-live="polite" data-copy-status></p>
+        </div>
+
+        <div class="contact__follow">
+          <p class="eyebrow">{t.contact.follow}</p>
+          <ul role="list" class="contact__socials">
+            {
+              [...site.socials, ...site.streaming].map((link) => (
+                <li>
+                  <a class="icon-btn" href={link.url} target="_blank" rel="noopener">
+                    <Icon name={link.id} />
+                    <span class="sr-only">
+                      {link.label} {t.a11y.newTab}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <!-- No backend: the form opens the visitor's email app with the message ready (mailto:). -->
+      <form
+        class="contact__form"
+        action={`mailto:${site.email}`}
+        method="post"
+        enctype="text/plain"
+        data-contact-form
+        data-email={site.email}
+        data-subject={f.subject}
+        data-someone={f.someone}
+        data-reveal
+      >
+        <h3 class="display contact__form-title">{f.title}</h3>
+
+        <div class="field">
+          <label for="contact-name">{f.name}</label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder={f.namePlaceholder} />
+        </div>
+        <div class="field">
+          <label for="contact-email">{f.email}</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder={f.emailPlaceholder} />
+        </div>
+        <div class="field">
+          <label for="contact-message">{f.message}</label>
+          <textarea id="contact-message" name="message" rows="5" required placeholder={f.messagePlaceholder}></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--magenta contact__submit">
+          <Icon name="send" />
+          {f.submit}
+        </button>
+        <p class="contact__note">{f.note}</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact__star {
+    top: clamp(2rem, 6vw, 5rem);
+    right: 6vw;
+    width: clamp(56px, 8vw, 96px);
+    height: auto;
+  }
+  .contact__dot {
+    bottom: 12%;
+    left: 3vw;
+    display: none;
+  }
+
+  .contact__grid {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .contact__info {
+    display: grid;
+    gap: 2.25rem;
+  }
+
+  .contact__email-block {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .contact__email {
+    font-size: clamp(1.3rem, 4.2vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--magenta);
+  }
+  .contact__email:hover {
+    color: var(--magenta);
+  }
+  .contact__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .contact__status {
+    min-height: 1.6em;
+    font-weight: 700;
+  }
+
+  .contact__follow {
+    display: grid;
+    gap: 0.9rem;
+  }
+  .contact__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  /* ---------- Form card (purple) ---------- */
+  .contact__form {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    border-radius: calc(var(--radius) + 8px);
+    background: var(--purple);
+    color: var(--offwhite);
+    box-shadow: 10px 10px 0 var(--lavender);
+    --focus: var(--yellow);
+  }
+  .contact__form-title {
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  }
+
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .field label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lavender);
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--lavender);
+    border-radius: var(--radius-sm);
+    background: rgb(249 248 244 / 0.06);
+    color: var(--offwhite);
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--lavender);
+    opacity: 1;
+  }
+  .field input:focus-visible,
+  .field textarea:focus-visible {
+    border-color: var(--yellow);
+    background: rgb(249 248 244 / 0.1);
+    outline-offset: 2px;
+  }
+
+  .contact__submit {
+    justify-self: start;
+  }
+  .contact__note {
+    font-size: 0.875rem;
+    color: var(--lavender);
+  }
+
+  @media (min-width: 960px) {
+    .contact__grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    }
+    .contact__dot {
+      display: block;
+    }
+  }
+</style>
