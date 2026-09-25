@@ -209,11 +209,15 @@ function initContactForm() {
     event.preventDefault();
     if (!form.reportValidity()) return;
     const data = new FormData(form);
+    const type = String(data.get('type') ?? '').trim();
     const name = String(data.get('name') ?? '').trim();
+    const org = String(data.get('org') ?? '').trim();
     const from = String(data.get('email') ?? '').trim();
     const message = String(data.get('message') ?? '').trim();
-    const subject = form.dataset.subject!.replace('{name}', name || form.dataset.someone!);
-    const body = `${message}\n\n— ${name}${from ? ` (${from})` : ''}`;
+    // e.g. "[Booking] Demande de Jane Doe via le site web", so requests are easy to sort.
+    const subject = form.dataset.subject!.replace('{type}', type).replace('{name}', name || form.dataset.someone!);
+    const signature = [name, org].filter(Boolean).join(', ');
+    const body = `${message}\n\n— ${signature}${from ? ` (${from})` : ''}`;
     window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }

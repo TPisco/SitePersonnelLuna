@@ -57,12 +57,27 @@ const links = [...site.streaming, ...site.socials];
 
   <div class="hero__content container">
     <p class="hero__eyebrow eyebrow">
-      {t.hero.eyebrow}<span class="hero__sep" aria-hidden="true">✦</span>{t.hero.origin}
+      {
+        t.hero.identity.map((part, i) => (
+          <>
+            {i > 0 && (
+              <span class="hero__sep">
+                <span aria-hidden="true">✦</span>
+                <span class="sr-only">, </span>
+              </span>
+            )}
+            <span>{part}</span>
+          </>
+        ))
+      }
     </p>
     <h1 id="hero-title" class="hero__name display">{site.name}</h1>
 
     <div class="hero__row">
-      <p class="hero__tagline" lang={t.hero.taglineLang}>{t.hero.tagline}</p>
+      <div class="hero__pitch">
+        <p class="hero__tagline">{t.hero.tagline}</p>
+        <p class="hero__genres">{t.hero.genres.join(' • ')}</p>
+      </div>
 
       <div class="hero__actions">
         <a class="btn btn--magenta" href="#music">
@@ -181,11 +196,29 @@ const links = [...site.streaming, ...site.socials];
     margin-top: clamp(0.75rem, 2vh, 1.5rem);
   }
 
+  .hero__pitch {
+    display: grid;
+    gap: 0.5rem;
+    max-width: 30rem;
+  }
   .hero__tagline {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     font-style: italic;
     font-weight: 600;
     line-height: 1.2;
+    text-wrap: balance;
+  }
+  .hero__genres {
+    color: var(--lavender);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @media (min-width: 600px) {
+    .hero__genres {
+      letter-spacing: 0.14em;
+    }
   }
 
   .hero__actions {

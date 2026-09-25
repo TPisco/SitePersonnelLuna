@@ -1,4 +1,6 @@
 {
+  "$comment": "`ep.singles` lists the singles already revealed from the EP (titles as in `singles`); they appear in the Uva section.",
+  "ep": { "title": "Uva", "singles": ["ESA NOCHE"] },
   "singles": [
     { "title": "ESA NOCHE", "date": "2026-07-24", "cover": "esa-noche", "url": "https://ffm.to/esanoche_lunayla" },
     { "title": "DESCONOCIDOS", "featuring": "MAL PORTADO", "date": "2026-04-24", "cover": "desconocidos", "url": "https://open.spotify.com/track/77pEbWqD12zxXM0TSQhqle" },
@@ -7,7 +9,7 @@
     { "title": "Tú Y Yo", "date": "2025-08-14", "cover": "tu-y-yo", "url": "https://open.spotify.com/track/3ETcrNmSa1cNVlMQk5G2Cb" }
   ],
   "videos": [
-    { "id": "4T9aAhy8fxM", "title": "Esa Noche (Live Acoustique)", "kind": "live", "thumb": "esa-noche-live" },
+    { "id": "4T9aAhy8fxM", "title": "Esa Noche (Live Acoustique)", "kind": "live", "thumb": "esa-noche-live", "featured": true },
     { "id": "5VLuZY6kbdo", "title": "DESCONOCIDOS (Visualizer)", "kind": "visualizer", "thumb": "desconocidos-visualizer" },
     { "id": "Z5ZPGFDY64M", "title": "Le Digo No (Version Acoustique)", "kind": "acoustic", "thumb": "le-digo-no-acoustic" }
   ]

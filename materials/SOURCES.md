@@ -8,7 +8,8 @@ which shows **(À CHANGER / TO BE CHANGED / POR CAMBIAR)** on the site.
 
 | Fact | Source |
 |---|---|
-| Bio: R&B + Latin rhythms, Cuban heritage, ESA NOCHE = return to salsa, feminine energy / languages | Spotify artist bio and YouTube channel description (same text) |
+| Positioning ("Elle fait danser le français sur des rythmes latins", "R&B latino • Salsa moderne • Montréal", "Artiste québécoise • Rythmes latins"), new bio (born in Québec, based in Montréal, jazz-trained, themes), Uva (debut EP, 5 tracks, planned April 2027, ESA NOCHE = first track revealed), first headline show sold out in Montréal with 70 tickets sold, 5 years of jazz training, professional contact wording | Feedback document from the artist's team, received 2026-09-25. It replaces the earlier "Montréal \| Cuba" and "d'origine cubaine" wording. |
+| (Earlier bio, now replaced) R&B + Latin rhythms, Cuban heritage, ESA NOCHE = return to salsa | Spotify artist bio and YouTube channel description (same text) |
 | "Artiste indépendante montréalaise d'origine cubaine" | bio.site/lunayla |
 | "por el amor del arte", "mtl \| cuba", email lunayla.officiel@gmail.com | Instagram bio @lunayla.jimenez (also on bio.site) |
 | Sings, piano, alto saxophone, flute; first show in a church; Primaire/Secondaire en spectacle; Petit Festival de la chanson de Granby; Festival de la famille de Saint-Hubert | TVA+ La Voix profile: https://www.tvaplus.ca/article/lunayla-jimenez-1091827444 (2023) |

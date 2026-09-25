@@ -1,0 +1,198 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import Sticker from './Sticker.astro';
+import music from '../data/music.json';
+import { cover } from '../lib/assets';
+import { fill, type Dict } from '../i18n';
+
+// The EP in development. Built like the color-system card:
+// purple panel, magenta bar, lavender panel with the singles already revealed.
+interface Props {
+  t: Dict;
+}
+
+const { t } = Astro.props;
+const revealed = music.ep.singles
+  .map((title) => music.singles.find((single) => single.title === title))
+  .filter((single) => single !== undefined);
+---
+
+<section class="section surface-offwhite uva" id="uva" aria-labelledby="uva-title" data-section>
+  <div class="container">
+    <div class="uva__card" data-reveal>
+      <div class="uva__main">
+        <p class="eyebrow uva__status">{t.uva.status}</p>
+        <h2 id="uva-title" class="display uva__title">{t.uva.title}</h2>
+        <p class="uva__release">
+          <span class="tag uva__tag">{t.achievements.upcoming}</span>{' '}
+          <span>{t.uva.release}</span>
+        </p>
+        <p class="uva__text">{t.uva.text}</p>
+        <Sticker kind="dot" color="orange" size={64} class="uva__dot" />
+        <Sticker kind="star" color="yellow" size={28} class="uva__star-small" />
+      </div>
+
+      <span class="uva__bar" aria-hidden="true"></span>
+
+      <div class="uva__side">
+        <Sticker kind="star" color="yellow" size={96} motion="float" class="uva__star" />
+        <p class="eyebrow">{t.uva.firstTrack}</p>
+        <ul role="list" class="uva__singles">
+          {
+            revealed.map((single) => (
+              <li>
+                <a class="uva__single" href={single.url} target="_blank" rel="noopener">
+                  <Image
+                    src={cover(single.cover)}
+                    alt={fill(t.music.coverAlt, { title: single.title })}
+                    width={400}
+                    widths={[240, 400]}
+                    sizes="(min-width: 1000px) 240px, 60vw"
+                    class="uva__cover"
+                    loading="lazy"
+                  />
+                  <span class="btn btn--purple uva__listen">
+                    <Icon name="play" />
+                    {fill(t.uva.listen, { title: single.title })}
+                  </span>
+                  <span class="sr-only">{t.a11y.newTab}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .uva__card {
+    display: grid;
+    overflow: hidden;
+    border-radius: calc(var(--radius) + 8px);
+    background: var(--purple);
+  }
+
+  /* ---------- Purple panel ---------- */
+  .uva__main {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+    padding: clamp(1.75rem, 5vw, 3.5rem);
+    color: var(--offwhite);
+    --focus: var(--yellow);
+  }
+  .uva__status {
+    color: var(--lavender);
+  }
+  .uva__title {
+    font-size: clamp(6rem, 22vw, 13rem);
+    line-height: 0.8;
+    text-shadow: 0.035em 0.035em 0 var(--magenta);
+  }
+  .uva__release {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    font-weight: 700;
+  }
+  .uva__tag {
+    background: var(--yellow);
+    color: var(--purple);
+  }
+  .uva__text {
+    max-width: 58ch;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  /* Beside the big title, clear of the eyebrow text. */
+  .uva__dot {
+    top: 5.5rem;
+    right: 1.5rem;
+    width: clamp(40px, 6vw, 64px);
+    height: auto;
+  }
+  .uva__star-small {
+    top: 9rem;
+    right: 4.5rem;
+  }
+  @media (min-width: 700px) {
+    .uva__dot {
+      top: 3rem;
+      right: 3rem;
+    }
+    .uva__star-small {
+      top: 8rem;
+      right: 8.5rem;
+    }
+  }
+
+  /* ---------- Magenta bar ---------- */
+  .uva__bar {
+    height: clamp(10px, 1.6vw, 18px);
+    background: var(--magenta);
+  }
+
+  /* ---------- Lavender panel ---------- */
+  .uva__side {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+    justify-items: center;
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--lavender);
+    color: var(--purple);
+    --focus: var(--purple);
+  }
+  .uva__star {
+    top: 1rem;
+    right: 1rem;
+    width: clamp(56px, 7vw, 96px);
+    height: auto;
+    rotate: 12deg;
+  }
+  .uva__singles {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .uva__single {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    text-decoration: none;
+  }
+  .uva__cover {
+    width: min(100%, 240px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 4px solid var(--purple);
+    border-radius: var(--radius-sm);
+    rotate: -3deg;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .uva__single:hover .uva__cover {
+    transform: translateY(-4px) rotate(-2deg);
+    box-shadow: 6px 6px 0 var(--magenta);
+  }
+  .uva__single:hover .uva__listen {
+    background: var(--magenta);
+    color: var(--white);
+  }
+
+  @media (min-width: 1000px) {
+    .uva__card {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 20rem);
+    }
+    .uva__bar {
+      width: clamp(12px, 1.4vw, 20px);
+      height: auto;
+    }
+  }
+</style>

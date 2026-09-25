@@ -22,6 +22,21 @@ const f = t.contact.form;
 
     <div class="contact__grid">
       <div class="contact__info" data-reveal>
+        <p class="contact__topics">
+          {
+            t.contact.topics.map((topic, i) => (
+              <>
+                {i > 0 && (
+                  <span class="contact__topic-sep">
+                    <span aria-hidden="true">•</span>
+                    <span class="sr-only">, </span>
+                  </span>
+                )}
+                <span>{topic}</span>
+              </>
+            ))
+          }
+        </p>
         <p class="lead">{t.contact.intro}</p>
 
         <div class="contact__email-block">
@@ -30,7 +45,7 @@ const f = t.contact.form;
           <div class="contact__actions">
             <a class="btn btn--magenta" href={`mailto:${site.email}`}>
               <Icon name="mail" />
-              {t.contact.title}
+              {t.contact.write}
             </a>
             <button
               type="button"
@@ -80,8 +95,18 @@ const f = t.contact.form;
         <h3 class="display contact__form-title">{f.title}</h3>
 
         <div class="field">
+          <label for="contact-type">{f.type}</label>
+          <select id="contact-type" name="type" required>
+            {f.types.map((type) => <option value={type}>{type}</option>)}
+          </select>
+        </div>
+        <div class="field">
           <label for="contact-name">{f.name}</label>
           <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder={f.namePlaceholder} />
+        </div>
+        <div class="field">
+          <label for="contact-org">{f.org}</label>
+          <input id="contact-org" name="org" type="text" autocomplete="organization" placeholder={f.orgPlaceholder} />
         </div>
         <div class="field">
           <label for="contact-email">{f.email}</label>
@@ -124,6 +149,19 @@ const f = t.contact.form;
   .contact__info {
     display: grid;
     gap: 2.25rem;
+  }
+
+  .contact__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.6rem;
+    font-size: clamp(0.875rem, 2.2vw, 1rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .contact__topic-sep {
+    color: var(--magenta);
   }
 
   .contact__email-block {
@@ -189,6 +227,7 @@ const f = t.contact.form;
     color: var(--lavender);
   }
   .field input,
+  .field select,
   .field textarea {
     width: 100%;
     min-height: 50px;
@@ -210,10 +249,25 @@ const f = t.contact.form;
     color: var(--lavender);
     opacity: 1;
   }
+  .field select {
+    font: inherit;
+    appearance: none;
+    padding-right: 2.75rem;
+    /* Chevron in lavender (#BA94CF). */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23BA94CF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+  }
+  .field select option {
+    background: var(--purple);
+    color: var(--offwhite);
+  }
   .field input:focus-visible,
+  .field select:focus-visible,
   .field textarea:focus-visible {
     border-color: var(--yellow);
-    background: rgb(249 248 244 / 0.1);
+    background-color: rgb(249 248 244 / 0.1);
     outline-offset: 2px;
   }
 

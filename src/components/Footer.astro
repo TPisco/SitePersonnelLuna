@@ -11,7 +11,7 @@ interface Props {
 
 const { lang, t } = Astro.props;
 const year = new Date().getFullYear();
-const sections = ['about', 'music', 'achievements', 'gallery', 'contact'] as const;
+const sections = ['about', 'music', 'uva', 'achievements', 'gallery', 'contact'] as const;
 ---
 
 <footer class="site-footer surface-purple">
@@ -20,7 +20,7 @@ const sections = ['about', 'music', 'achievements', 'gallery', 'contact'] as con
   <div class="container site-footer__inner">
     <div class="site-footer__brand">
       <a class="site-footer__logo display" href="#top">{site.name}</a>
-      <p class="site-footer__tagline" lang={t.hero.taglineLang}>{t.hero.tagline}</p>
+      <p class="site-footer__tagline" lang={t.footer.mottoLang}>{t.footer.motto}</p>
     </div>
 
     <nav class="site-footer__nav" aria-label={t.a11y.footerNav}>

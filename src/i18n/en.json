@@ -2,8 +2,8 @@
   "meta": {
     "htmlLang": "en-CA",
     "ogLocale": "en_CA",
-    "title": "Lunayla | R&B and Latin rhythms artist, Montréal",
-    "description": "Official website of Lunayla, an independent Montréal artist with Cuban roots. Contemporary R&B meets Latin rhythms: listen to ESA NOCHE, explore her journey and get in touch."
+    "title": "Lunayla | Québec artist, Latin R&B and modern salsa",
+    "description": "Official website of Lunayla, a Québec artist based in Montréal. She makes French dance to Latin rhythms: listen to ESA NOCHE, discover Uva, her debut EP, and get in touch for booking or press."
   },
   "a11y": {
     "skip": "Skip to content",
@@ -20,15 +20,22 @@
   "nav": {
     "about": "About",
     "music": "Music",
-    "achievements": "Achievements",
+    "uva": "Uva",
+    "achievements": "Journey",
     "gallery": "Gallery",
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "R&B × Latin rhythms",
-    "origin": "Montréal | Cuba",
-    "tagline": "Por el amor del arte",
-    "taglineLang": "es",
+    "identity": [
+      "Québec artist",
+      "Latin rhythms"
+    ],
+    "tagline": "She makes French dance to Latin rhythms.",
+    "genres": [
+      "Latin R&B",
+      "Modern salsa",
+      "Montréal"
+    ],
     "listen": "Listen",
     "latest": "Latest release: {title}",
     "photoAlt": "Lunayla sits in front of a purple door, wearing a magenta scarf top, looking at the camera."
@@ -39,34 +46,33 @@
       "Musique",
       "Music",
       "Música",
-      "R&B",
-      "Salsa",
-      "Montréal",
-      "Cuba"
+      "Latin R&B",
+      "Modern salsa",
+      "Montréal"
     ],
     "bottom": [
       "Por el amor del arte",
       "Lunayla",
-      "Montréal | Cuba"
+      "Québec artist",
+      "Latin rhythms"
     ]
   },
   "about": {
     "title": "About",
     "paragraphs": [
-      "Lunayla is an independent artist from Montréal with Cuban roots. She blends contemporary R&B with Latin rhythms into a vibrant, sensual sound grounded in her heritage and carried by a colourful, luminous universe.",
-      "A singer-songwriter and multi-instrumentalist, she makes every song an extension of herself.",
-      "With \"ESA NOCHE\",  modern salsa, she returns to the rhythms that shaped her musical identity. Feminine energy, confidence, the freedom to move from one world, one language and one sound to another: all of it, por el amor del arte."
+      "Born in Québec and based in Montréal, Lunayla brings French, Spanish and Latin rhythms together in an R&B-pop sound made to be felt as much as danced to. With “Esa Noche”, she sets French verses over modern salsa, a direction that is still rare in French-language music today.",
+      "A jazz-trained singer-songwriter and multi-instrumentalist, she writes about intuition, the boundaries we learn to set and the strength it takes to rebuild. Her debut EP, Uva, now in the works, will take that exploration further through salsa, Latin R&B, Latin jazz, bossa nova and Afro-Latin sounds."
     ],
     "facts": [
-      "Montréal | Cuba",
-      "R&B × Latin rhythms",
+      "Québec artist • Latin rhythms",
+      "Latin R&B • Modern salsa",
       "Vocals · piano · alto sax · flute"
     ],
     "photoAlt": "Lunayla sings with her eyes closed, mic in hand, in warm light."
   },
   "music": {
     "title": "Music",
-    "intro": "The latest single, the acoustic sessions and the rest of the catalogue. Pick your platform.",
+    "intro": "“ESA NOCHE” to stream and live, then the whole catalogue. Pick your platform.",
     "listenOn": "Listen on {platform}",
     "playerTitle": "Lunayla Spotify player",
     "playerLoad": "Listen here",
@@ -85,9 +91,38 @@
     "playVideo": "Play video: {title}",
     "allVideos": "All videos on YouTube"
   },
+  "highlights": {
+    "title": "Highlights",
+    "items": [
+      {
+        "value": "70",
+        "label": "tickets sold: first headline show, sold out, in Montréal"
+      },
+      {
+        "value": "5 years",
+        "label": "of jazz training"
+      },
+      {
+        "value": "ICI Musique",
+        "label": "played on Nouveaux sons, Radio-Canada"
+      },
+      {
+        "value": "5 tracks",
+        "label": "on Uva, her debut EP in the works"
+      }
+    ]
+  },
+  "uva": {
+    "title": "Uva",
+    "status": "Debut EP in the works",
+    "release": "Planned release: April 2027",
+    "text": "After “Esa Noche”, the first track revealed from the project, Lunayla is preparing Uva, a five-song EP where French and Spanish move between modern salsa, Latin R&B, Latin jazz, bossa nova and Afro-Latin rhythms. The project follows a woman learning to listen to her intuition again, set her boundaries and take back her place.",
+    "firstTrack": "First single",
+    "listen": "Listen to {title}"
+  },
   "achievements": {
-    "title": "Achievements",
-    "intro": "Releases, stages and milestones.",
+    "title": "Journey",
+    "intro": "Media, milestone releases and what’s next.",
     "upcoming": "Upcoming",
     "photoAlt": "Lunayla sings on stage, mic in hand, under blue spotlights."
   },
@@ -100,28 +135,47 @@
     "counter": "Photo {i} of {n}"
   },
   "contact": {
-    "title": "Write to me",
-    "intro": "Shows, collaborations, press, or just to say hi: write to me.",
-    "emailLabel": "My email",
+    "title": "Professional contact",
+    "topics": [
+      "Booking",
+      "Press",
+      "Partnerships",
+      "Industry"
+    ],
+    "intro": "For show requests, interviews, programming or professional collaborations.",
+    "emailLabel": "Email",
+    "write": "Send an email",
     "copy": "Copy",
     "copied": "Email copied!",
-    "copyFailed": "Couldn't copy, please select the address manually.",
-    "follow": "Follow me",
+    "copyFailed": "Couldn’t copy: please select the address manually.",
+    "follow": "Socials and platforms",
     "form": {
-      "title": "Send me a message",
+      "title": "Send a request",
+      "type": "Type of request",
+      "types": [
+        "Booking",
+        "Press",
+        "Partnership",
+        "Industry",
+        "Other"
+      ],
       "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Your email",
-      "emailPlaceholder": "you@example.com",
+      "namePlaceholder": "First and last name",
+      "org": "Organization or media outlet (optional)",
+      "orgPlaceholder": "Venue, festival, media, label…",
+      "email": "Email",
+      "emailPlaceholder": "name@organization.com",
       "message": "Message",
-      "messagePlaceholder": "Your message…",
+      "messagePlaceholder": "Date, venue, project, timeline…",
       "submit": "Send",
-      "note": "The button opens your email app with your message ready to go. All you have to do is hit send.",
-      "subject": "Website message from {name}",
+      "note": "This button opens your email app with the message already written, ready to send.",
+      "subject": "[{type}] Request from {name} via the website",
       "someone": "someone"
     }
   },
   "footer": {
+    "motto": "Por el amor del arte",
+    "mottoLang": "es",
     "rights": "All rights reserved.",
     "backToTop": "Back to top"
   },

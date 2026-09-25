@@ -5,6 +5,8 @@ import Hero from '../../components/Hero.astro';
 import Marquee from '../../components/Marquee.astro';
 import About from '../../components/About.astro';
 import Music from '../../components/Music.astro';
+import Highlights from '../../components/Highlights.astro';
+import Uva from '../../components/Uva.astro';
 import Achievements from '../../components/Achievements.astro';
 import Gallery from '../../components/Gallery.astro';
 import Contact from '../../components/Contact.astro';
@@ -26,6 +28,8 @@ const t = useTranslations(lang);
     <Marquee words={t.marquee.top} t={t} />
     <About t={t} />
     <Music t={t} />
+    <Highlights t={t} />
+    <Uva t={t} />
     <Achievements lang={lang} t={t} />
     <Gallery lang={lang} t={t} />
     <Contact t={t} />

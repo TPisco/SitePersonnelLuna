@@ -4,7 +4,7 @@ A one-page, trilingual (FR / EN / ES) presentation site for the artist Lunayla.
 Static [Astro](https://astro.build) site: no backend, no payments, no tracking.
 
 - French is the default: `/fr/`, `/en/`, `/es/`. The root `/` sends visitors to their saved language, or to their browser language if it is English or Spanish, else to French.
-- Sections: Hero → About → Music → Achievements → Gallery → Contact.
+- Sections: Hero → About → Music (ESA NOCHE + the live video first) → Highlights (Points forts) → Uva (the EP) → Journey (Parcours) → Gallery → Professional contact.
 - Styling: plain CSS with custom properties (the palette lives in `src/styles/global.css`), no CSS framework.
 
 ## Run it
@@ -30,8 +30,8 @@ src/
 │  └─ es.json          ← same keys in Spanish
 ├─ data/
 │  ├─ site.json        ← email, streaming and social links, latest release link
-│  ├─ achievements.json← the dated achievements list
-│  ├─ music.json       ← singles (covers, links) and YouTube videos
+│  ├─ achievements.json← the dated Parcours list (milestones, media, what is next)
+│  ├─ music.json       ← singles, YouTube videos (`featured` = the big live video) and the EP (`ep.singles`)
 │  └─ gallery.json     ← gallery photos + alt text in 3 languages
 ├─ assets/
 │  ├─ photos/          ← hero, about, stage and gallery photos (originals, never shipped as-is)
@@ -48,12 +48,13 @@ materials/SOURCES.md   ← where every fact and photo comes from
 ```
 
 - **Text**: change it in all three `src/i18n/*.json` files (same key in each). A missing key breaks the build on purpose.
+- **Points forts** (the 4 proof points) and the **Uva** text: `highlights` and `uva` in the `src/i18n/*.json` files. When a new single from the EP comes out, add it to `singles` in `music.json` and its title to `ep.singles`: it appears in the Uva card.
 - **Email / links**: `src/data/site.json`.
 - **Photos**: drop a `.jpg` / `.JPG` (or `.png`, `.webp`) in `src/assets/photos/` and reference it by file name, without the extension. Astro makes AVIF/WebP versions in several sizes at build time. To add one to the gallery, add an entry to `src/data/gallery.json` with its alt text in the 3 languages; portrait and landscape photos both work. Keep only photos the site uses in that folder (an unused photo still gets copied into the build), and keep videos and RAW files (`.mov`, `.ARW`) out of it: they are git-ignored.
 
-## Add an achievement
+## Add an item to Parcours
 
-Add an object to `items` in `src/data/achievements.json`. Order in the file doesn't matter: the list is sorted by `date`.
+Add an object to `items` in `src/data/achievements.json`. Keep it for milestones, shows, media and what is next: single releases already appear in the Music section. Order in the file doesn't matter: the list is sorted by `date`.
 
 ```json
 {

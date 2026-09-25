@@ -1,19 +1,26 @@
 {
-  "$comment": "Achievements list. Newest first is automatic: items are sorted by `date` (YYYY-MM-DD). Items dated after the build day are shown first with an 'Upcoming' tag. `dateLabel` replaces the displayed date (e.g. 'Fall 2026'). `template: true` appends '(TO BE CHANGED)' in each language: use it for anything not confirmed yet. `source` is for your records only (not shown).",
+  "$comment": "Achievements list. Newest first is automatic: items are sorted by `date` (YYYY-MM-DD). Items dated after the build day are shown first with an 'Upcoming' tag. `dateLabel` replaces the displayed date (e.g. 'Fall 2026'). `template: true` appends '(TO BE CHANGED)' in each language: use it for anything not confirmed yet. `source` is for your records only (not shown). Single releases live in src/data/music.json (Music section); keep this list for milestones, media and what is next.",
   "items": [
-  
+    {
+      "id": "uva",
+      "date": "2027-04-01",
+      "dateLabel": { "fr": "Avril 2027", "en": "April 2027", "es": "Abril de 2027" },
+      "title": { "fr": "Uva, premier EP de cinq titres", "en": "Uva, a five-track debut EP", "es": "Uva, primer EP de cinco temas" },
+      "place": { "fr": "En développement · sortie prévue", "en": "In the works · planned release", "es": "En desarrollo · lanzamiento previsto" },
+      "source": "Client feedback, 2026-09-25"
+    },
     {
       "id": "esa-noche",
       "date": "2026-07-24",
-      "title": { "fr": "Sortie du single « ESA NOCHE »", "en": "“ESA NOCHE” single released", "es": "Lanzamiento del sencillo «ESA NOCHE»" },
-      "place": { "fr": "Un retour à la salsa · L'Univers de Lunayla", "en": "A return to salsa · L'Univers de Lunayla", "es": "Un regreso a la salsa · L'Univers de Lunayla" },
+      "title": { "fr": "« ESA NOCHE », premier extrait d’Uva", "en": "“ESA NOCHE”, first single from Uva", "es": "«ESA NOCHE», primer adelanto de Uva" },
+      "place": { "fr": "Des couplets en français sur une salsa moderne", "en": "French verses over modern salsa", "es": "Versos en francés sobre una salsa moderna" },
       "source": "https://open.spotify.com/track/6QaQVVGqDLfGZeHeN6icM1"
     },
     {
       "id": "desconocidos",
       "date": "2026-04-24",
       "title": { "fr": "« DESCONOCIDOS » avec MAL PORTADO", "en": "“DESCONOCIDOS” with MAL PORTADO", "es": "«DESCONOCIDOS» con MAL PORTADO" },
-      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
+      "place": { "fr": "Collaboration", "en": "Collaboration", "es": "Colaboración" },
       "source": "https://open.spotify.com/track/77pEbWqD12zxXM0TSQhqle"
     },
     {
@@ -22,27 +29,6 @@
       "title": { "fr": "« Le Digo No (Sped Up) » diffusée à Nouveaux sons", "en": "“Le Digo No (Sped Up)” played on Nouveaux sons", "es": "«Le Digo No (Sped Up)» sonó en Nouveaux sons" },
       "place": { "fr": "ICI Musique · Radio-Canada", "en": "ICI Musique · Radio-Canada", "es": "ICI Musique · Radio-Canada" },
       "source": "https://ici.radio-canada.ca/ohdio/musique/emissions/nouveaux-sons/episodes/1096390/mardi-17-mars-2026"
-    },
-    {
-      "id": "le-digo-no",
-      "date": "2026-01-30",
-      "title": { "fr": "Sortie de « Le Digo No » et de sa version sped up", "en": "“Le Digo No” and its sped-up version released", "es": "Lanzamiento de «Le Digo No» y su versión sped up" },
-      "place": { "fr": "Single · coécrit par Lunayla", "en": "Single · co-written by Lunayla", "es": "Sencillo · coescrito por Lunayla" },
-      "source": "https://open.spotify.com/track/04jHBXFKFR7ttCvcszlXIX"
-    },
-    {
-      "id": "le-hablo-asi",
-      "date": "2025-11-29",
-      "title": { "fr": "Sortie de « Le Hablo Asi »", "en": "“Le Hablo Asi” released", "es": "Lanzamiento de «Le Hablo Asi»" },
-      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
-      "source": "https://open.spotify.com/track/060P7wbPIiOacCkMLa1IvP"
-    },
-    {
-      "id": "tu-y-yo",
-      "date": "2025-08-14",
-      "title": { "fr": "Sortie de « Tú Y Yo »", "en": "“Tú Y Yo” released", "es": "Lanzamiento de «Tú Y Yo»" },
-      "place": { "fr": "Single", "en": "Single", "es": "Sencillo" },
-      "source": "https://open.spotify.com/track/3ETcrNmSa1cNVlMQk5G2Cb"
     }
   ]
 }

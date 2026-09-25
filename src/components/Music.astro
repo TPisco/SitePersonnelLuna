@@ -3,9 +3,10 @@ import { Image } from 'astro:assets';
 import SectionHead from './SectionHead.astro';
 import Icon from './Icon.astro';
 import Sticker from './Sticker.astro';
+import VideoCard from './VideoCard.astro';
 import site from '../data/site.json';
 import music from '../data/music.json';
-import { cover, thumb } from '../lib/assets';
+import { cover } from '../lib/assets';
 import { fill, type Dict } from '../i18n';
 
 interface Props {
@@ -16,6 +17,9 @@ const { t } = Astro.props;
 const latest = music.singles[0];
 const youtube = site.streaming.find((s) => s.id === 'youtube');
 const spotifyEmbed = `https://open.spotify.com/embed/artist/${site.spotifyArtistId}?utm_source=generator&theme=0`;
+// The live video marked `"featured": true` in music.json is shown big, right under the player.
+const featured = music.videos.find((v) => 'featured' in v && v.featured) ?? music.videos[0];
+const otherVideos = music.videos.filter((v) => v !== featured);
 type VideoKind = keyof Dict['music']['videoKinds'];
 ---
 
@@ -72,6 +76,16 @@ type VideoKind = keyof Dict['music']['videoKinds'];
       </div>
     </div>
 
+    <div class="music__live" data-reveal>
+      <div class="music__live-video">
+        <VideoCard video={featured} t={t} meta={false} sizes="(min-width: 1240px) 780px, (min-width: 1000px) 64vw, 92vw" />
+      </div>
+      <div class="music__live-text">
+        <span class="tag video-tag">{t.music.videoKinds[featured.kind as VideoKind]}</span>
+        <h3 class="display title-md">{featured.title}</h3>
+      </div>
+    </div>
+
     <h3 class="display title-md music__sub" data-reveal>{t.music.singles}</h3>
     <ul role="list" class="singles" data-reveal>
       {
@@ -101,26 +115,9 @@ type VideoKind = keyof Dict['music']['videoKinds'];
     <h3 class="display title-md music__sub" data-reveal>{t.music.videos}</h3>
     <ul role="list" class="videos" data-reveal>
       {
-        music.videos.map((video) => (
-          <li class="video">
-            <div
-              class="video__frame"
-              data-facade
-              data-kind="youtube"
-              data-src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`}
-              data-title={video.title}
-            >
-              <button type="button" class="video__btn" data-facade-load aria-label={fill(t.music.playVideo, { title: video.title })}>
-                <Image src={thumb(video.thumb)} alt="" widths={[400, 640, 960]} sizes="(min-width: 1000px) 390px, (min-width: 700px) 46vw, 92vw" class="video__img" loading="lazy" />
-                <span class="video__play" aria-hidden="true">
-                  <Icon name="play" size={30} />
-                </span>
-              </button>
-            </div>
-            <p class="video__meta">
-              <span class="tag video__tag">{t.music.videoKinds[video.kind as VideoKind]}</span>
-              <span class="video__title">{video.title}</span>
-            </p>
+        otherVideos.map((video) => (
+          <li>
+            <VideoCard video={video} t={t} sizes="(min-width: 700px) 46vw, 92vw" />
           </li>
         ))
       }
@@ -287,74 +284,27 @@ type VideoKind = keyof Dict['music']['videoKinds'];
     font-size: 0.875rem;
   }
 
-  /* ---------- Videos ---------- */
-  .videos {
+  /* ---------- Featured live video (right under the player) ---------- */
+  .music__live {
     display: grid;
-    gap: clamp(1.25rem, 3vw, 1.75rem);
+    gap: 1rem 2rem;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
   }
-  .video__frame {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border: 4px solid var(--purple);
-    border-radius: 22px;
-    background: var(--purple);
-  }
-  .video__btn {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    --focus: var(--yellow);
-  }
-  .video__btn:focus-visible {
-    outline-offset: -6px;
-  }
-  .video__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  .video__btn:hover .video__img {
-    transform: scale(1.04);
-  }
-  .video__play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  .music__live-text {
     display: grid;
-    place-items: center;
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    background: var(--magenta);
-    color: var(--white);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 6px 24px rgb(65 33 83 / 0.45);
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
+    gap: 0.6rem;
+    justify-items: start;
+    align-content: end;
   }
-  .video__btn:hover .video__play {
-    background: var(--orange);
-    color: var(--purple);
-  }
-  .video__meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-  }
-  .video__tag {
+  .video-tag {
     background: var(--purple);
     color: var(--offwhite);
   }
-  .video__title {
-    font-weight: 700;
+
+  /* ---------- Other videos ---------- */
+  .videos {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
   }
 
   .music__more {
@@ -383,8 +333,8 @@ type VideoKind = keyof Dict['music']['videoKinds'];
     .music__feature {
       grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     }
-    .videos {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .music__live {
+      grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
     }
   }
 

@@ -10,8 +10,8 @@ Strings identical in all three languages (codes, names) are omitted.
 |---|---|---|---|
 | `meta.htmlLang` | fr-CA | en-CA | es |
 | `meta.ogLocale` | fr_CA | en_CA | es_LA |
-| `meta.title` | Lunayla \| Artiste R&B et rythmes latins, Montréal | Lunayla \| R&B and Latin rhythms artist, Montréal | Lunayla \| Artista de R&B y ritmos latinos, Montreal |
-| `meta.description` | Site officiel de Lunayla, artiste indépendante montréalaise d'origine cubaine. R&B contemporain et rythmes latins : écoute ESA NOCHE, découvre son parcours et écris-lui. | Official website of Lunayla, an independent Montréal artist with Cuban roots. Contemporary R&B meets Latin rhythms: listen to ESA NOCHE, explore her journey and get in touch. | Sitio oficial de Lunayla, artista independiente de Montreal con raíces cubanas. R&B contemporáneo y ritmos latinos: escucha ESA NOCHE, conoce su trayectoria y escríbele. |
+| `meta.title` | Lunayla \| Artiste québécoise, R&B latino et salsa moderne | Lunayla \| Québec artist, Latin R&B and modern salsa | Lunayla \| Artista quebequense, R&B latino y salsa moderna |
+| `meta.description` | Site officiel de Lunayla, artiste québécoise basée à Montréal. Elle fait danser le français sur des rythmes latins : écoute ESA NOCHE, découvre Uva, son premier EP, et contacte-la pour le booking ou la presse. | Official website of Lunayla, a Québec artist based in Montréal. She makes French dance to Latin rhythms: listen to ESA NOCHE, discover Uva, her debut EP, and get in touch for booking or press. | Sitio oficial de Lunayla, artista quebequense radicada en Montreal. Hace bailar el francés al ritmo latino: escucha ESA NOCHE, descubre Uva, su primer EP, y contáctala para booking o prensa. |
 | `a11y.skip` | Aller au contenu | Skip to content | Ir al contenido |
 | `a11y.mainNav` | Navigation principale | Main navigation | Navegación principal |
 | `a11y.footerNav` | Navigation du pied de page | Footer navigation | Navegación del pie de página |
@@ -24,24 +24,32 @@ Strings identical in all three languages (codes, names) are omitted.
 | `a11y.marqueePlay` | Relancer le texte défilant | Resume scrolling text | Reanudar el texto en movimiento |
 | `nav.about` | À propos | About | Biografía |
 | `nav.music` | Musique | Music | Música |
-| `nav.achievements` | Réalisations | Achievements | Logros |
+| `nav.achievements` | Parcours | Journey | Trayectoria |
 | `nav.gallery` | Galerie | Gallery | Galería |
 | `nav.contact` | Contact | Contact | Contacto |
-| `hero.eyebrow` | R&B × rythmes latins | R&B × Latin rhythms | R&B × ritmos latinos |
-| `hero.origin` | Montréal \| Cuba | Montréal \| Cuba | Montreal \| Cuba |
+| `hero.identity.0` | Artiste québécoise | Québec artist | Artista quebequense |
+| `hero.identity.1` | Rythmes latins | Latin rhythms | Ritmos latinos |
+| `hero.tagline` | Elle fait danser le français sur des rythmes latins. | She makes French dance to Latin rhythms. | Hace bailar el francés al ritmo latino. |
+| `hero.genres.0` | R&B latino | Latin R&B | R&B latino |
+| `hero.genres.1` | Salsa moderne | Modern salsa | Salsa moderna |
+| `hero.genres.2` | Montréal | Montréal | Montreal |
 | `hero.listen` | Écouter | Listen | Escuchar |
 | `hero.latest` | Dernière sortie : {title} | Latest release: {title} | Lo último: {title} |
 | `hero.photoAlt` | Lunayla assise devant une porte violette, un foulard magenta noué en haut, regarde l'objectif. | Lunayla sits in front of a purple door, wearing a magenta scarf top, looking at the camera. | Lunayla sentada frente a una puerta morada, con un pañuelo magenta como top, mira a la cámara. |
+| `marquee.top.4` | R&B latino | Latin R&B | R&B latino |
+| `marquee.top.5` | Salsa moderne | Modern salsa | Salsa moderna |
+| `marquee.top.6` | Montréal | Montréal | Montreal |
+| `marquee.bottom.2` | Artiste québécoise | Québec artist | Artista quebequense |
+| `marquee.bottom.3` | Rythmes latins | Latin rhythms | Ritmos latinos |
 | `about.title` | À propos | About | Biografía |
-| `about.paragraphs.0` | Lunayla est une artiste indépendante de Montréal, d’origine cubaine. Elle fusionne le R&B avec les rythmes latins pour créer un son vibrant et sensuel, enraciné dans son héritage et porté par un univers coloré et lumineux. | Lunayla is an independent artist from Montréal with Cuban roots. She blends contemporary R&B with Latin rhythms into a vibrant, sensual sound grounded in her heritage and carried by a colourful, luminous universe. | Lunayla es una artista independiente de Montreal con raíces cubanas. Mezcla el R&B contemporáneo con ritmos latinos para crear un sonido vibrante y sensual, arraigado en su herencia y envuelto en un universo colorido y luminoso. |
-| `about.paragraphs.1` | Auteure-compositrice-interprète et multi-instrumentiste, elle fait de chaque chanson un prolongement d’elle-même. | A singer-songwriter and multi-instrumentalist, she makes every song an extension of herself. | Cantautora y multiinstrumentista, hace de cada canción una extensión de sí misma. |
-| `about.paragraphs.2` | Avec « ESA NOCHE », une salsa moderne, elle revient à ces rythmes qui ont façonné son identité musicale. Énergie féminine, confiance, liberté de passer d’un monde, d’une langue et d’un son à l’autre : tout ça, por el amor del arte. | With "ESA NOCHE",  modern salsa, she returns to the rhythms that shaped her musical identity. Feminine energy, confidence, the freedom to move from one world, one language and one sound to another: all of it, por el amor del arte. | Con «ESA NOCHE», una salsa moderna, regresa a esos ritmos que forjaron su identidad musical. Energía femenina, confianza, la libertad de pasar de un mundo, de un idioma y de un sonido a otro: todo eso, por el amor del arte. |
-| `about.facts.0` | Montréal \| Cuba | Montréal \| Cuba | Montreal \| Cuba |
-| `about.facts.1` | R&B × rythmes latins | R&B × Latin rhythms | R&B × ritmos latinos |
+| `about.paragraphs.0` | Née au Québec et basée à Montréal, Lunayla fait rencontrer le français, l’espagnol et les rythmes latins dans une pop R&B pensée autant pour être ressentie que dansée. Avec « Esa Noche », elle pose des couplets en français sur une salsa moderne, affirmant une direction encore rare dans la musique francophone actuelle. | Born in Québec and based in Montréal, Lunayla brings French, Spanish and Latin rhythms together in an R&B-pop sound made to be felt as much as danced to. With “Esa Noche”, she sets French verses over modern salsa, a direction that is still rare in French-language music today. | Nacida en Quebec y radicada en Montreal, Lunayla une el francés, el español y los ritmos latinos en un pop R&B pensado tanto para sentirse como para bailarse. Con «Esa Noche» canta versos en francés sobre una salsa moderna, una dirección todavía poco común en la música francófona actual. |
+| `about.paragraphs.1` | Auteure-compositrice-interprète et multi-instrumentiste formée en jazz, elle écrit sur l’intuition, les limites que l’on apprend à poser et la force de se reconstruire. Son premier EP, Uva, actuellement en développement, poursuivra cette exploration à travers la salsa, le R&B latino, le latin jazz, la bossa nova et les sonorités afro-latines. | A jazz-trained singer-songwriter and multi-instrumentalist, she writes about intuition, the boundaries we learn to set and the strength it takes to rebuild. Her debut EP, Uva, now in the works, will take that exploration further through salsa, Latin R&B, Latin jazz, bossa nova and Afro-Latin sounds. | Cantautora y multiinstrumentista con formación en jazz, escribe sobre la intuición, los límites que aprendemos a poner y la fuerza de volver a construirse. Su primer EP, Uva, actualmente en desarrollo, llevará esa búsqueda más lejos a través de la salsa, el R&B latino, el latin jazz, la bossa nova y los sonidos afrolatinos. |
+| `about.facts.0` | Artiste québécoise • Rythmes latins | Québec artist • Latin rhythms | Artista quebequense • Ritmos latinos |
+| `about.facts.1` | R&B latino • Salsa moderne | Latin R&B • Modern salsa | R&B latino • Salsa moderna |
 | `about.facts.2` | Voix · piano · sax alto · flûte | Vocals · piano · alto sax · flute | Voz · piano · saxo alto · flauta |
 | `about.photoAlt` | Lunayla chante les yeux fermés, micro à la main, dans une lumière chaude. | Lunayla sings with her eyes closed, mic in hand, in warm light. | Lunayla canta con los ojos cerrados, micrófono en mano, bajo una luz cálida. |
 | `music.title` | Musique | Music | Música |
-| `music.intro` | Le dernier single, les sessions acoustiques et le reste du catalogue. Choisis ta plateforme. | The latest single, the acoustic sessions and the rest of the catalogue. Pick your platform. | El último sencillo, las sesiones acústicas y el resto del catálogo. Elige tu plataforma. |
+| `music.intro` | « ESA NOCHE » en écoute et en live, puis tout le catalogue. Choisis ta plateforme. | “ESA NOCHE” to stream and live, then the whole catalogue. Pick your platform. | «ESA NOCHE» para escuchar y en vivo, y después todo el catálogo. Elige tu plataforma. |
 | `music.listenOn` | Écouter sur {platform} | Listen on {platform} | Escuchar en {platform} |
 | `music.playerTitle` | Lecteur Spotify de Lunayla | Lunayla Spotify player | Reproductor de Spotify de Lunayla |
 | `music.playerLoad` | Écouter ici | Listen here | Escuchar aquí |
@@ -56,8 +64,20 @@ Strings identical in all three languages (codes, names) are omitted.
 | `music.videoKinds.acoustic` | Acoustique | Acoustic | Acústico |
 | `music.playVideo` | Lire la vidéo : {title} | Play video: {title} | Reproducir el video: {title} |
 | `music.allVideos` | Toutes les vidéos sur YouTube | All videos on YouTube | Todos los videos en YouTube |
-| `achievements.title` | Réalisations | Achievements | Logros |
-| `achievements.intro` | Sorties, scènes et moments marquants. | Releases, stages and milestones. | Lanzamientos, escenarios y momentos clave. |
+| `highlights.title` | Points forts | Highlights | Destacados |
+| `highlights.items.0.label` | billets vendus : premier spectacle en tête d’affiche, complet, à Montréal | tickets sold: first headline show, sold out, in Montréal | entradas vendidas: su primer concierto como cabeza de cartel, con lleno total, en Montreal |
+| `highlights.items.1.value` | 5 ans | 5 years | 5 años |
+| `highlights.items.1.label` | de formation en jazz | of jazz training | de formación en jazz |
+| `highlights.items.2.label` | diffusion à Nouveaux sons, Radio-Canada | played on Nouveaux sons, Radio-Canada | sonó en Nouveaux sons, Radio-Canada |
+| `highlights.items.3.value` | 5 titres | 5 tracks | 5 temas |
+| `highlights.items.3.label` | pour Uva, premier EP en développement | on Uva, her debut EP in the works | en Uva, su primer EP en desarrollo |
+| `uva.status` | Premier EP en développement | Debut EP in the works | Primer EP en desarrollo |
+| `uva.release` | Sortie prévue en avril 2027 | Planned release: April 2027 | Lanzamiento previsto para abril de 2027 |
+| `uva.text` | Après « Esa Noche », premier titre révélé du projet, Lunayla prépare Uva, un EP de cinq chansons où le français et l’espagnol circulent entre salsa moderne, R&B latino, latin jazz, bossa nova et rythmes afro-latins. Le projet suit une femme qui réapprend à écouter son intuition, poser ses limites et reprendre sa place. | After “Esa Noche”, the first track revealed from the project, Lunayla is preparing Uva, a five-song EP where French and Spanish move between modern salsa, Latin R&B, Latin jazz, bossa nova and Afro-Latin rhythms. The project follows a woman learning to listen to her intuition again, set her boundaries and take back her place. | Después de «Esa Noche», el primer tema revelado del proyecto, Lunayla prepara Uva, un EP de cinco canciones en el que el francés y el español circulan entre la salsa moderna, el R&B latino, el latin jazz, la bossa nova y los ritmos afrolatinos. El proyecto sigue a una mujer que vuelve a escuchar su intuición, aprende a poner límites y recupera su lugar. |
+| `uva.firstTrack` | Premier extrait | First single | Primer adelanto |
+| `uva.listen` | Écouter {title} | Listen to {title} | Escuchar {title} |
+| `achievements.title` | Parcours | Journey | Trayectoria |
+| `achievements.intro` | Médias, sorties marquantes et prochaines étapes. | Media, milestone releases and what’s next. | Medios, lanzamientos clave y próximos pasos. |
 | `achievements.upcoming` | À venir | Upcoming | Próximamente |
 | `achievements.photoAlt` | Lunayla chante sur scène, micro à la main, sous des projecteurs bleus. | Lunayla sings on stage, mic in hand, under blue spotlights. | Lunayla canta en el escenario, micrófono en mano, bajo luces azules. |
 | `gallery.title` | Galerie | Gallery | Galería |
@@ -66,24 +86,35 @@ Strings identical in all three languages (codes, names) are omitted.
 | `gallery.prev` | Photo précédente | Previous photo | Foto anterior |
 | `gallery.next` | Photo suivante | Next photo | Foto siguiente |
 | `gallery.counter` | Photo {i} sur {n} | Photo {i} of {n} | Foto {i} de {n} |
-| `contact.title` | Écris-moi | Write to me | Escríbeme |
-| `contact.intro` | Pour un spectacle, une collaboration, les médias ou simplement pour dire bonjour : écris-moi. | Shows, collaborations, press, or just to say hi: write to me. | Conciertos, colaboraciones, prensa o simplemente para saludar: escríbeme. |
-| `contact.emailLabel` | Mon courriel | My email | Mi correo |
+| `contact.title` | Contact professionnel | Professional contact | Contacto profesional |
+| `contact.topics.1` | Presse | Press | Prensa |
+| `contact.topics.2` | Partenariats | Partnerships | Alianzas |
+| `contact.topics.3` | Industrie | Industry | Industria |
+| `contact.intro` | Pour une demande de spectacle, une entrevue, une programmation ou une collaboration professionnelle. | For show requests, interviews, programming or professional collaborations. | Para solicitudes de conciertos, entrevistas, programación o colaboraciones profesionales. |
+| `contact.emailLabel` | Courriel | Email | Correo |
+| `contact.write` | Écrire un courriel | Send an email | Enviar un correo |
 | `contact.copy` | Copier | Copy | Copiar |
 | `contact.copied` | Courriel copié ! | Email copied! | ¡Correo copiado! |
-| `contact.copyFailed` | Copie impossible, sélectionne l'adresse à la main. | Couldn't copy, please select the address manually. | No se pudo copiar, selecciona la dirección a mano. |
-| `contact.follow` | Suis-moi | Follow me | Sígueme |
-| `contact.form.title` | Envoie-moi un message | Send me a message | Envíame un mensaje |
+| `contact.copyFailed` | Copie impossible : l’adresse est à sélectionner à la main. | Couldn’t copy: please select the address manually. | No se pudo copiar: selecciona la dirección a mano. |
+| `contact.follow` | Réseaux et plateformes | Socials and platforms | Redes y plataformas |
+| `contact.form.title` | Envoyer une demande | Send a request | Enviar una solicitud |
+| `contact.form.type` | Type de demande | Type of request | Tipo de solicitud |
+| `contact.form.types.1` | Presse | Press | Prensa |
+| `contact.form.types.2` | Partenariat | Partnership | Alianza |
+| `contact.form.types.3` | Industrie | Industry | Industria |
+| `contact.form.types.4` | Autre | Other | Otro |
 | `contact.form.name` | Nom | Name | Nombre |
-| `contact.form.namePlaceholder` | Ton nom | Your name | Tu nombre |
-| `contact.form.email` | Ton courriel | Your email | Tu correo |
-| `contact.form.emailPlaceholder` | toi@exemple.com | you@example.com | tu@ejemplo.com |
+| `contact.form.namePlaceholder` | Prénom et nom | First and last name | Nombre y apellido |
+| `contact.form.org` | Organisation ou média (facultatif) | Organization or media outlet (optional) | Organización o medio (opcional) |
+| `contact.form.orgPlaceholder` | Salle, festival, média, label… | Venue, festival, media, label… | Sala, festival, medio, sello… |
+| `contact.form.email` | Courriel | Email | Correo |
+| `contact.form.emailPlaceholder` | nom@organisation.com | name@organization.com | nombre@organizacion.com |
 | `contact.form.message` | Message | Message | Mensaje |
-| `contact.form.messagePlaceholder` | Ton message… | Your message… | Tu mensaje… |
+| `contact.form.messagePlaceholder` | Date, lieu, projet, délais… | Date, venue, project, timeline… | Fecha, lugar, proyecto, plazos… |
 | `contact.form.submit` | Envoyer | Send | Enviar |
-| `contact.form.note` | Le bouton ouvre ton application courriel avec ton message déjà prêt. Tu n'as plus qu'à l'envoyer. | The button opens your email app with your message ready to go. All you have to do is hit send. | El botón abre tu aplicación de correo con el mensaje listo. Solo tienes que enviarlo. |
-| `contact.form.subject` | Message du site web de {name} | Website message from {name} | Mensaje del sitio web de {name} |
-| `contact.form.someone` | quelqu'un | someone | alguien |
+| `contact.form.note` | Ce bouton ouvre l’application courriel avec le message déjà rédigé, prêt à envoyer. | This button opens your email app with the message already written, ready to send. | Este botón abre la aplicación de correo con el mensaje ya redactado, listo para enviar. |
+| `contact.form.subject` | [{type}] Demande de {name} via le site web | [{type}] Request from {name} via the website | [{type}] Solicitud de {name} desde el sitio web |
+| `contact.form.someone` | quelqu’un | someone | alguien |
 | `footer.rights` | Tous droits réservés. | All rights reserved. | Todos los derechos reservados. |
 | `footer.backToTop` | Retour en haut | Back to top | Volver arriba |
 | `template` | (À CHANGER) | (TO BE CHANGED) | (POR CAMBIAR) |
@@ -92,18 +123,15 @@ Strings identical in all three languages (codes, names) are omitted.
 
 | Key | Français | English | Español |
 |---|---|---|---|
-| `esa-noche.title` | Sortie du single « ESA NOCHE » | “ESA NOCHE” single released | Lanzamiento del sencillo «ESA NOCHE» |
-| `esa-noche.place` | Un retour à la salsa · L'Univers de Lunayla | A return to salsa · L'Univers de Lunayla | Un regreso a la salsa · L'Univers de Lunayla |
+| `uva.dateLabel` | Avril 2027 | April 2027 | Abril de 2027 |
+| `uva.title` | Uva, premier EP de cinq titres | Uva, a five-track debut EP | Uva, primer EP de cinco temas |
+| `uva.place` | En développement · sortie prévue | In the works · planned release | En desarrollo · lanzamiento previsto |
+| `esa-noche.title` | « ESA NOCHE », premier extrait d’Uva | “ESA NOCHE”, first single from Uva | «ESA NOCHE», primer adelanto de Uva |
+| `esa-noche.place` | Des couplets en français sur une salsa moderne | French verses over modern salsa | Versos en francés sobre una salsa moderna |
 | `desconocidos.title` | « DESCONOCIDOS » avec MAL PORTADO | “DESCONOCIDOS” with MAL PORTADO | «DESCONOCIDOS» con MAL PORTADO |
-| `desconocidos.place` | Single | Single | Sencillo |
+| `desconocidos.place` | Collaboration | Collaboration | Colaboración |
 | `nouveaux-sons.title` | « Le Digo No (Sped Up) » diffusée à Nouveaux sons | “Le Digo No (Sped Up)” played on Nouveaux sons | «Le Digo No (Sped Up)» sonó en Nouveaux sons |
 | `nouveaux-sons.place` | ICI Musique · Radio-Canada | ICI Musique · Radio-Canada | ICI Musique · Radio-Canada |
-| `le-digo-no.title` | Sortie de « Le Digo No » et de sa version sped up | “Le Digo No” and its sped-up version released | Lanzamiento de «Le Digo No» y su versión sped up |
-| `le-digo-no.place` | Single · coécrit par Lunayla | Single · co-written by Lunayla | Sencillo · coescrito por Lunayla |
-| `le-hablo-asi.title` | Sortie de « Le Hablo Asi » | “Le Hablo Asi” released | Lanzamiento de «Le Hablo Asi» |
-| `le-hablo-asi.place` | Single | Single | Sencillo |
-| `tu-y-yo.title` | Sortie de « Tú Y Yo » | “Tú Y Yo” released | Lanzamiento de «Tú Y Yo» |
-| `tu-y-yo.place` | Single | Single | Sencillo |
 
 ## Gallery alt text (src/data/gallery.json)
 

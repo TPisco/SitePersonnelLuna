@@ -1,0 +1,109 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { thumb } from '../lib/assets';
+import { fill, type Dict } from '../i18n';
+
+// YouTube video behind a click-to-load facade: only the thumbnail loads until the click.
+interface Props {
+  video: { id: string; title: string; kind: string; thumb: string };
+  t: Dict;
+  /** `sizes` for the thumbnail. */
+  sizes: string;
+  /** Show the tag + title under the video. */
+  meta?: boolean;
+}
+
+const { video, t, sizes, meta = true } = Astro.props;
+type VideoKind = keyof Dict['music']['videoKinds'];
+---
+
+<div
+  class="video__frame"
+  data-facade
+  data-kind="youtube"
+  data-src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`}
+  data-title={video.title}
+>
+  <button type="button" class="video__btn" data-facade-load aria-label={fill(t.music.playVideo, { title: video.title })}>
+    <Image src={thumb(video.thumb)} alt="" width={960} widths={[400, 640, 960, 1280]} sizes={sizes} class="video__img" loading="lazy" />
+    <span class="video__play" aria-hidden="true">
+      <Icon name="play" size={30} />
+    </span>
+  </button>
+</div>
+{
+  meta && (
+    <p class="video__meta">
+      <span class="tag video__tag">{t.music.videoKinds[video.kind as VideoKind]}</span>
+      <span class="video__title">{video.title}</span>
+    </p>
+  )
+}
+
+<style>
+  .video__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 4px solid var(--purple);
+    border-radius: 22px;
+    background: var(--purple);
+  }
+  .video__btn {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    --focus: var(--yellow);
+  }
+  .video__btn:focus-visible {
+    outline-offset: -6px;
+  }
+  .video__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .video__btn:hover .video__img {
+    transform: scale(1.04);
+  }
+  .video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--magenta);
+    color: var(--white);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 6px 24px rgb(65 33 83 / 0.45);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .video__btn:hover .video__play {
+    background: var(--orange);
+    color: var(--purple);
+  }
+  .video__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .video__tag {
+    background: var(--purple);
+    color: var(--offwhite);
+  }
+  .video__title {
+    font-weight: 700;
+  }
+</style>
